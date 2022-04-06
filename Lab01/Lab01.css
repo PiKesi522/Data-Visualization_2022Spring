@@ -1,0 +1,121 @@
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    #refresh_page img:hover {
+        animation: App-logo-spin infinite 1s linear;
+    }
+}
+
+#refresh_page img{
+    margin-right: 50px;
+    float: right;
+    cursor: pointer;
+}
+
+#disappearlater{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#kvalue{
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#sbK{
+    margin-top: 20px;
+    margin-left: 5px;
+    border: 2px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    width: 60px;
+    height: 40px;
+}
+
+#sbK:hover{
+    cursor: pointer;
+}
+
+#loading{
+    display: none;
+    margin: 0 auto;
+}
+
+#upload{
+    display: block; 
+    margin: 50px 0 0 250px;
+}
+
+#img_change{
+    background: url("./images/uploadImg.png");
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-left: 35px;
+    cursor: pointer;
+}
+
+#img_change:hover{
+    background: url("./images/uploadImg_hover.png");
+}
+
+#start_anl{
+    margin-left: 35px; 
+    margin-top: 14px;
+    font-size: 30px;
+    font-weight: 450;
+    color: #cfcfcf;
+}
+
+#myCanvas{
+    display: block;
+    margin: 0 auto;
+}
+
+#container{
+    height: 1000px;
+    width: 1400px; 
+    display: block; 
+    margin: 0 auto;
+    /* background-color: aqua; */
+}
+
+#change_style{
+    /* visibility: hidden; */
+    height: 60px;
+    width: 200px;
+    background-color:aliceblue;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 35px;
+    
+    font-family:Arial, Helvetica, sans-serif;
+    /* box-shadow: gray 2px 2px; */
+    border-radius: 5px;
+}
+
+#change_style:hover{
+    cursor: pointer;
+    box-shadow: gray 2px 2px;
+}
+
+#change_style:active{
+    box-shadow: gray -2px -2px;
+}
+
+#change_style:link{
+    box-shadow: gray 4px 4px;
+}
+

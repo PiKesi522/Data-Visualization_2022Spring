@@ -1,0 +1,47 @@
+<!-- CSS样式 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMeans聚类分析图像像素</title>
+    <link rel="stylesheet" href="./Lab01.css">
+    </head>
+
+<body> 
+    <div id="refresh_page">
+        <img src="./images/refresh.png"  onclick="location.reload()" width="60px" height="60px"></br>
+    </div>
+    
+	<div id="loading">
+		<img src="./images/loading1.gif"/>
+	</div>	
+
+    <div id="upload">
+        <div id="disappearlater">
+            聚类中心K的数量:
+            <input type="text" id="kvalue" name="k" value = 3 >
+            <input type="submit" id="sbK" value="确认" onclick="submitK()" />  
+        </div>
+
+        <div id="showlater" style="display: none;">
+            <input type="file" id="file" style="display:none;" onchange="filechange(event)">
+            <img id="img_change" alt="点击上传图片" src="./images/uploadImg.png"></br>
+            <div id="start_anl">点击上传图片</div>
+        </div>
+    </div>
+    <canvas id="myCanvas" width="800px" height="600px">
+        Your browser does not support the canvas element.
+    </canvas>
+    <div id="container"></div>
+    <input type="button" id="change_style" value="切换样式" style="display: none;" onclick="changestyle()">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.1/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./Lab01.js"></script>
+
+</body>
+
+</html>
