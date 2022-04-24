@@ -1,6 +1,6 @@
-<center><h3>DataVisualize Lab 02</h3></center>
+<center><h1>DataVisualize Lab 02</h1></center>
 
-<center><h5>10192100571 俞辰杰</h5></center>
+<center><h3>10192100571 俞辰杰</h3></center>
 
 
 
