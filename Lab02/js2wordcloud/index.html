@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+
+<body>
+    <div id="container" style="height: 980px; width: 2000px;"></div>
+    <script src="dist/js2wordcloud.js"></script>
+    <script src="dist/d3.v3.min.js"></script>
+    <script>
+        var statisticList = [];
+        d3.json("statistic.json", function (data) {
+            console.log(data.RECORDS);
+            for(var i = 0; i < data.RECORDS.length; i += 1){
+                var temp = [data.RECORDS[i].Name, data.RECORDS[i].Count];
+                console.log(temp);
+                statisticList[i] = temp;
+            }
+		});
+
+        var option = {
+            tooltip: {
+                show: true,
+                formatter: function (item) {
+                    return item[0] + ':频率 ' + item[1] + '<br>' + '词云图'
+                }
+            },
+            list: statisticList,
+            color: '#15a4fa',
+            shape: 'circle',
+            ellipticity: 1
+        }
+        var wc = new Js2WordCloud(document.getElementById('container'))
+        wc.showLoading({
+            backgroundColor: '#fff',
+            text: 'Loading...',
+            effect: 'spin'
+        })
+        setTimeout(function () {
+            wc.hideLoading()
+            wc.setOption(option)
+        }, 2000)
+
+        // setTimeout(function () {
+        //     wc.setOption({
+        //         noDataLoadingOption: {
+        //             backgroundColor: '#f00',
+        //             text: '暂无数据'
+        //         }
+        //     })
+        // }, 4000)
+
+        // setTimeout(function () {
+        //     wc.setOption(option)
+        // }, 6000)
+
+        /////////////////
+        // var option1 = {
+        //     color: '#15a4fa',
+        //     noDataLoadingOption: {
+        //         backgroundColor: '#eee',
+        //         text: '暂无数据',
+        //         textStyle: {
+        //             color: '#f00',
+        //             fontSize: 20
+        //         }
+        //     }
+        // }
+        // var wc1 = new Js2WordCloud(document.getElementById('container1'))
+        // wc1.showLoading()
+        // setTimeout(function () {
+        //     wc1.hideLoading()
+        //     wc1.setOption(option1)
+        // }, 2000)
+
+        // var option8 = {
+        //     tooltip: {
+        //         show: true,
+        //         formatter: function (item) {
+        //             return item[0] + ': 价值¥' + item[1] + '<br>' + '词云图'
+        //         }
+        //     },
+        //     list: statisticList,
+        //     color: 'red'
+        // }
+        // setTimeout(function () {
+        //     wc1.setOption(option8)
+        // }, 4000)
+
+        // window.onresize = function () {
+        //     wc.resize()
+        // }
+        /////////////////
+    </script>
+</body>
+
+</html>
