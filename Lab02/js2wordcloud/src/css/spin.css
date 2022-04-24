@@ -1,0 +1,99 @@
+@-webkit-keyframes __wc_loading_animation__ {
+  50% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes __wc_loading_animation__ {
+  50% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+.__wc_loading_wrapper__ {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.__wc_loading_wrapper_item__ {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+  padding-right: 60px;
+  line-height: 1.4;
+}
+.__wc_loading_wrapper_item_inner__ {
+  position: relative;
+  text-align: left;
+  display: inline-block;
+}
+
+.__wc_loading__ {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  margin-top: -6px;
+}
+
+  .__wc_loading__ > div:nth-child(1) {
+    top: 15px;
+    left: 0;
+    -webkit-animation: __wc_loading_animation__ 1s 0s infinite linear;
+            animation: __wc_loading_animation__ 1s 0s infinite linear; }
+  .__wc_loading__ > div:nth-child(2) {
+    top: 10.22726px;
+    left: 10.22726px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.12s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.12s infinite linear; }
+  .__wc_loading__ > div:nth-child(3) {
+    top: 0;
+    left: 15px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.24s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.24s infinite linear; }
+  .__wc_loading__ > div:nth-child(4) {
+    top: -10.22726px;
+    left: 10.22726px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.36s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.36s infinite linear; }
+  .__wc_loading__ > div:nth-child(5) {
+    top: -15px;
+    left: 0;
+    -webkit-animation: __wc_loading_animation__ 1s 0.48s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.48s infinite linear; }
+  .__wc_loading__ > div:nth-child(6) {
+    top: -10.22726px;
+    left: -10.22726px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.6s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.6s infinite linear; }
+  .__wc_loading__ > div:nth-child(7) {
+    top: 0;
+    left: -15px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.72s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.72s infinite linear; }
+  .__wc_loading__ > div:nth-child(8) {
+    top: 10.22726px;
+    left: -10.22726px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.84s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.84s infinite linear; }
+  .__wc_loading__ > div {
+    background-color: #d3d3d3;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin: 2px;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    position: absolute; 
+  }
