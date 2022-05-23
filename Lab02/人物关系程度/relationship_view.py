@@ -1,17 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-
-"""
-Created on 2017/10/15 19:24
-
-@file: relationship_view.py
-@author: Qingyu Mao
-"""
 import jieba
 import codecs
 from collections import defaultdict
 
-TEXT_PATH = '../jsjs.txt'  # 文本路径
+TEXT_PATH = './jsjs.txt'  # 文本路径
 DICT_PATH = './person.txt'  # 人物字典路径
 SYNONYMOUS_DICT_PATH = './synonymous_dict.txt'  # 同义词路径
 SAVE_NODE_PATH = './node.csv'
