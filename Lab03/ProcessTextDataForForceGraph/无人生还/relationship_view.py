@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-
+# from cv2 import threshold
 """
 Created on 2017/10/15 19:24
 
@@ -14,11 +14,12 @@ from collections import defaultdict
 TEXT_PATH = './wrsh.txt'  # 文本路径
 DICT_PATH = './person.txt'  # 人物字典路径
 SYNONYMOUS_DICT_PATH = './synonymous_dict.txt'  # 同义词路径
-SAVE_NODE_PATH = './node.csv'
-SAVE_EDGE_PATH = './edge.csv'
+SAVE_NODE_PATH = './mynode.csv'
+SAVE_EDGE_PATH = './myedge.csv'
 
 
 class RelationshipView:
+
     def __init__(self, text_path, dict_path, synonymous_dict_path):
         self._text_path = text_path
         self._dict_path = dict_path
@@ -128,18 +129,31 @@ class RelationshipView:
         根据dephi格式保存为csv
         :return:
         '''
+        peopleCount = 0
         with codecs.open(SAVE_NODE_PATH, "a+", "utf-8") as f:
-            f.write("Id,Label,Weight\r\n")
+            # f.write("Id,Label,Weight\r\n")
             for name, times in self._person_counter.items():
-                f.write(name + "," + str(times) + "\r\n")
-        print(self._person_counter)
+                # f.write(name + "," + str(times) + "\r\n")
+                f.write("{\"id\": \"" + name + "\", \"group\": " + "2" +
+                        "},\r\n")
+                peopleCount += 1
+        # print(self._person_counter)
+
+        relationCount = 0
         with codecs.open(SAVE_EDGE_PATH, "a+", "utf-8") as f:
-            f.write("Source,Target,Weight\r\n")
+            # f.write("Source,Target,Weight\r\n")
             for name, edges in self._relationships.items():
                 for v, w in edges.items():
-                    if w > 3:
-                        f.write(name + "," + v + "," + str(w) + "\r\n")
-        print(self._relationships)
+                    relationCount += w
+            th = relationCount / peopleCount / 2
+            print(th)
+            for name, edges in self._relationships.items():
+                for v, w in edges.items():
+                    if w > th:
+                        f.write("{\"source\": \"" + name +
+                                "\", \"target\": \"" + v + "\", \"value\": " +
+                                str(w) + "},\r\n")
+        # print(self._relationships)
         print('save file successful!')
 
 
