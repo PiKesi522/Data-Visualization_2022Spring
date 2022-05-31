@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src='./dist/echarts.min.js'></script>
+    <script src='./dist/echarts-wordcloud.js'></script>
+    <script src='./dist/d3.v3.min.js'></script>
+</head>
+
+<body>
+    <style>
+        html,
+        body,
+        #main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+    <div id='main'></div>
+
+    <script>
+        console.log("Do")
+        var chart = echarts.init(document.getElementById('main'));
+
+        var data = [];
+        var length;
+        // d3.json("Count.json", function (list) {
+        d3.json("./data/DoguraMogura.json", function (list) {
+            console.log(list.RECORDS);
+            length = list.RECORDS.length;
+            for (var i = 0; i < length; i += 1) {
+                data.push({
+                    name: list.RECORDS[i].name,
+                    value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                    // value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                    // textStyle: {color: 'red'},
+                })
+            }
+        });
+        console.log(data);
+
+        var maskImage = new Image();
+
+        var option = {
+            series: [{
+                type: 'wordCloud',
+                sizeRange: [4, 150],
+                rotationRange: [0, 0],
+                gridSize: 0,
+                shape: 'pentagon',
+                maskImage: maskImage,
+                drawOutOfBound: false,
+                layoutAnimation: true,
+                keepAspect: true,
+                textStyle: {
+                    fontWeight: 'bold',
+                    color: function () {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 200) + 50,
+                            Math.round(Math.random() * 50),
+                            Math.round(Math.random() * 50) + 50
+                        ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    textStyle: {
+                        color: '#528'
+                    }
+                },
+                data: data.sort(function (a, b) {
+                    return b.value - a.value;
+                })
+            }]
+        };
+
+        maskImage.onload = function () {
+            option.series[0].maskImage
+            chart.setOption(option);
+        }
+
+        maskImage.src = './pics/Brain.png';
+
+        window.onresize = function () {
+            chart.resize();
+        }
+
+    </script>
+</body>
+
+</html>
