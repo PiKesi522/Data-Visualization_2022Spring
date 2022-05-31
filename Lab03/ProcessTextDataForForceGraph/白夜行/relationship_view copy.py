@@ -13,8 +13,8 @@ from collections import defaultdict
 TEXT_PATH = './byx.txt'  # 文本路径
 DICT_PATH = './person.txt'  # 人物字典路径
 SYNONYMOUS_DICT_PATH = './synonymous_dict.txt'  # 同义词路径
-SAVE_NODE_PATH = './node.csv'
-SAVE_EDGE_PATH = './myedge.csv'
+SAVE_NODE_PATH = './notuse.csv'
+SAVE_EDGE_PATH = './myedge1.csv'
 
 
 class RelationshipView:
@@ -134,49 +134,22 @@ class RelationshipView:
         return self._relationships
 
     def save_node_and_edge(self):
-        peopleCount = 1
+        peopleCount = 0
         with codecs.open(SAVE_NODE_PATH, "a+", "utf-8") as f:
             # f.write("Id,Label,Weight\r\n")
             for name, times in self._person_counter.items():
                 # f.write(name + "," + str(times) + "\r\n")
-                f.write("{\"id\": \"" + peopleCount + "\", \"name\": " + name +
-                        "\", \"val\": " + str(times) + "},\r\n")
+                f.write("{\"id\": \"" + name + "\", \"group\": " + "2" +
+                        "},\r\n")
                 peopleCount += 1
         # print(self._person_counter)
 
-        relationCount = 0
-        i = 0
-        maxRecord = []
-        maxEdge = []
         with codecs.open(SAVE_EDGE_PATH, "a+", "utf-8") as f:
-            # f.write("Source,Target,Weight\r\n")
             for name, edges in self._relationships.items():
-                max = 0
-                maxedge = ""
                 for v, w in edges.items():
-                    relationCount += w
-                    if max < w:
-                        max = w
-                        maxedge = v
-                maxRecord.append(max)
-                maxEdge.append(maxedge)
-                i += 1
-
-            i = 0
-            for name, edges in self._relationships.items():
-                print(name + ":" + str(maxRecord[i]))
-                for v, w in edges.items():
-                    if maxRecord[i] < 20:
-                        f.write("{\"source\": \"" + name +
-                                "\", \"target\": \"" + maxEdge[i] +
-                                "\", \"value\": " + str(maxRecord[i]) +
-                                "},\r\n")
-                        break
-                    if w > 20:
-                        f.write("{\"source\": \"" + name +
-                                "\", \"target\": \"" + v + "\", \"value\": " +
-                                str(w) + "},\r\n")
-                i += 1
+                    f.write("{\"source\": \"" + name +
+                            "\", \"target\": \"" + v + "\", \"value\": " +
+                            str(w) + "},\r\n")
         # print(self._relationships)
         print('save file successful!')
 
