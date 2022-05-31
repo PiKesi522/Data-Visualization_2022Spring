@@ -1,0 +1,213 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=graph-simple
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+  <script src="./dist/d3.v3.min.js"></script>
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    console.log("mylink");
+    mylink = [];
+    d3.json("./data/WRSH.json", function(dataa){
+      // console.log(data);
+      for(var i = 0; i < dataa.length; i++){
+        if(dataa[i].source == "沃格雷夫" || dataa[i].target == "沃格雷夫"){
+          mylink.push({ 
+                      source : dataa[i].source, 
+                      target : dataa[i].target, 
+                      lineStyle: {
+                        color: "#661111",
+                        width: Math.sqrt(dataa[i].width) * 3,
+                        curveness: 0.25
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: dataa[i].width.toString(10)
+                        }
+                      }
+                    });
+        }else{
+          mylink.push({ 
+                      source : dataa[i].source, 
+                      target : dataa[i].target, 
+                      lineStyle: {
+                        width : Math.sqrt(dataa[i].width) * 2,
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: dataa[i].width.toString(10)
+                        }
+                      }
+                    });
+        }
+      }
+
+      option = {
+        title: {
+          text: 'And Then There Were None Relation',
+          textStyle:{
+            fontSize: 81
+          }
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series: [{
+          type: 'graph',
+          layout: 'none',
+          symbolSize: 50,
+          roam: true,
+          label: {
+            fontSize: 36,
+            fontWeight: 700,
+            show: true
+          },
+          edgeLabel: {
+            normal: {
+                color: '#AA0012',//线上的字体颜色
+            }
+          },
+          data: [
+            {
+              name: "沃格雷夫",
+              symbolSize: 117,
+              value: 117,
+              x: 410,
+              y: 300,
+              itemStyle:{
+                color:"#550000"
+              }
+            },
+            {
+              name: "克莱索恩",
+              symbolSize: 71,
+              value: 71,
+              x: 550,
+              y: 250
+            },
+            {
+              name: '隆巴德',
+              symbolSize : 312 - 100,
+              value : 312,
+              x: 400,
+              y: 150
+            },
+            {
+              name: '布伦特',
+              symbolSize: 138,
+              value: 138,
+              x: 465,
+              y: 450
+            },
+            {
+              name: '麦克阿瑟',
+              symbolSize: 57,
+              value: 57,
+              x: 500,
+              y: 180
+            },
+            {
+              name: '阿姆斯特朗',
+              symbolSize: 246 - 100,
+              value: 246,
+              x: 256,
+              y: 354
+            },
+            {
+              name: '马斯顿',
+              symbolSize: 63,
+              value: 63,
+              x: 260,
+              y: 245
+            },
+            {
+              name: '布洛尔',
+              symbolSize: 286 - 100,
+              value: 286,
+              x: 550,
+              y: 350
+            },
+            {
+              name: '罗杰斯',
+              symbolSize: 135,
+              value: 135,
+              x: 345,
+              y: 450
+            },
+            {
+              name: '罗杰斯太太',
+              symbolSize: 48,
+              value: 48,
+              x: 303,
+              y: 182
+            },
+          ],
+          links : mylink,
+          lineStyle: {
+            opacity: 0.9,
+            width: 2,
+            curveness: 0.1
+          },
+          emphasis: {
+            focus: 'adjacency',
+            lineStyle: {
+              color:"#FF0000",
+              width: 10
+            },
+            edgeLabel:{
+              show: true
+            }
+          }
+        }]
+      };
+      console.log(option.series[0].links);
+
+      if (option && typeof option === 'object') {
+        myChart.setOption(option);
+      }
+
+      window.addEventListener('resize', myChart.resize);
+    });
+  </script>
+</body>
+
+</html>

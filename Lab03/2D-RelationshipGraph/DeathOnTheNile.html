@@ -1,0 +1,276 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=graph-simple
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+  <script src="./dist/d3.v3.min.js"></script>
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    console.log("mylink");
+    mylink = [];
+    d3.json("./data/NLHSDCA.json", function(dataa){
+      // console.log(data);
+      for(var i = 0; i < dataa.length; i++){
+        if( dataa[i].source == "波洛" || dataa[i].target == "波洛" ){
+          mylink.push({ 
+                      source : dataa[i].source, 
+                      target : dataa[i].target, 
+                      lineStyle: {
+                        color: "#446644",
+                        width: Math.sqrt(dataa[i].width) * 1.6,
+                        curveness: 0.2
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: dataa[i].width.toString(10)
+                        }
+                      }
+                    });
+        }else if( (dataa[i].source == "西蒙" && dataa[i].target == "琳内特") ||
+                  (dataa[i].source == "西蒙" && dataa[i].target == "杰奎琳")||
+                  (dataa[i].source == "琳内特" && dataa[i].target == "杰奎琳")){
+          mylink.push({ 
+                      source : dataa[i].source, 
+                      target : dataa[i].target, 
+                      lineStyle: {
+                        color: "#550000",
+                        width: Math.sqrt(dataa[i].width) * 1.6,
+                        curveness: 0.2
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: dataa[i].width.toString(10)
+                        }
+                      }
+                    });
+        }else{
+          mylink.push({ 
+                      source : dataa[i].source, 
+                      target : dataa[i].target, 
+                      lineStyle: {
+                        width : Math.sqrt(dataa[i].width) * 2,
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: dataa[i].width.toString(10)
+                        }
+                      }
+                    });
+        }
+      }
+
+      option = {
+        title: {
+          text: 'Death On The Nile Relation',
+          textStyle:{
+            fontSize: 81
+          }
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series: [{
+          type: 'graph',
+          layout: 'none',
+          symbolSize: 50,
+          roam: true,
+          label: {
+            fontSize: 36,
+            fontWeight: 700,
+            show: true
+          },
+          edgeLabel: {
+            normal: {
+                color: '#AA0012',//线上的字体颜色
+            }
+          },
+          data: [
+            {
+              name: "波洛",
+              symbolSize: 664 / 2,
+              value: 664,
+              x: 0,
+              y: 400,
+              itemStyle:{
+                color:"#557755"
+              }
+            },
+            {
+              name: "琳内特",
+              symbolSize: 307 / 2,
+              value: 307,
+              x: 500,
+              y: 0,
+              itemStyle:{
+                color:"#550000"
+              }
+            },
+            {
+              name: '西蒙',
+              symbolSize : 278 / 2,
+              value : 278,
+              x: 200,
+              y: 1000,
+              itemStyle:{
+                color:"#550000"
+              }
+            },
+            {
+              name: '雷斯',
+              symbolSize: 262 / 2,
+              value: 262,
+              x: 1000,
+              y: 400
+            },
+            {
+              name: '杰奎琳',
+              symbolSize: 183 / 2,
+              value: 183,
+              x: 800,
+              y: 1000,
+              itemStyle:{
+                color:"#550000"
+              }
+            },
+            {
+              name: '蒂姆',
+              symbolSize: 156 / 2,
+              value: 156,
+              x: 400,
+              y: 1050
+            },
+            {
+              name: '潘宁顿',
+              symbolSize: 141 / 2,
+              value: 141,
+              x: 600,
+              y: 1050
+            },
+            {
+              name: '科妮丽亚',
+              symbolSize: 137 / 2,
+              value: 137,
+              x: 873,
+              y: 800
+            },
+            {
+              name: '罗莎莉',
+              symbolSize: 118 / 2,
+              value: 113,
+              x: 970,
+              y: 600
+            },
+            {
+              name: '范索普',
+              symbolSize: 113 / 2,
+              value: 113,
+              x: 100,
+              y: 800
+            },
+            {
+              name: '贝斯纳',
+              symbolSize: 108 / 2,
+              value: 108,
+              x: 30,
+              y: 660
+            },
+            {
+              name: '范斯凯勒',
+              symbolSize: 95 / 2,
+              value: 95,
+              x: 130,
+              y: 200
+            },
+            {
+              name: '鲍尔斯',
+              symbolSize: 78 / 2,
+              value: 78,
+              x: 300,
+              y: 60
+            },
+            {
+              name: '乔安娜',
+              symbolSize: 59 / 2,
+              value: 59,
+              x: 880,
+              y: 200
+            },
+            {
+              name: '波尔热',
+              symbolSize: 44 / 2,
+              value: 44,
+              x: 680,
+              y: 60
+            },
+          ],
+          links : mylink,
+          lineStyle: {
+            opacity: 0.9,
+            width: 2,
+            curveness: 0.1
+          },
+          emphasis: {
+            focus: 'adjacency',
+            lineStyle: {
+              color:"#FF0000",
+              width: 10
+            },
+            edgeLabel:{
+              show: true
+            }
+          }
+        }]
+      };
+      console.log(option.series[0].links);
+
+      if (option && typeof option === 'object') {
+        myChart.setOption(option);
+      }
+
+      window.addEventListener('resize', myChart.resize);
+    });
+  </script>
+</body>
+
+</html>
