@@ -1,0 +1,222 @@
+[
+    {
+      "source": "布洛尔",
+      "target": "隆巴德",
+      "width": 101
+    },
+    {
+      "source": "布洛尔",
+      "target": "阿姆斯特朗",
+      "width": 80
+    },
+    {
+      "source": "阿姆斯特朗",
+      "target": "隆巴德",
+      "width": 63
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "隆巴德",
+      "width": 39
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "阿姆斯特朗",
+      "width": 38
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "布洛尔",
+      "width": 31
+    },
+    {
+      "source": "克莱索恩",
+      "target": "布洛尔",
+      "width": 28
+    },
+    {
+      "source": "克莱索恩",
+      "target": "隆巴德",
+      "width": 25
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "布伦特",
+      "width": 23
+    },
+    {
+      "source": "马斯顿",
+      "target": "罗杰斯太太",
+      "width": 21
+    },
+    {
+      "source": "罗杰斯",
+      "target": "隆巴德",
+      "width": 21
+    },
+    {
+      "source": "阿姆斯特朗",
+      "target": "马斯顿",
+      "width": 21
+    },
+    {
+      "source": "布洛尔",
+      "target": "布伦特",
+      "width": 20
+    },
+    {
+      "source": "阿姆斯特朗",
+      "target": "布伦特",
+      "width": 19
+    },
+    {
+      "source": "克莱索恩",
+      "target": "布伦特",
+      "width": 19
+    },
+    {
+      "source": "马斯顿",
+      "target": "隆巴德",
+      "width": 18
+    },
+    {
+      "source": "阿姆斯特朗",
+      "target": "克莱索恩",
+      "width": 18
+    },
+    {
+      "source": "罗杰斯",
+      "target": "罗杰斯太太",
+      "width": 15
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "麦克阿瑟",
+      "width": 15
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "罗杰斯",
+      "width": 25
+    },
+    {
+      "source": "布伦特",
+      "target": "罗杰斯",
+      "width": 15
+    },
+    {
+      "source": "罗杰斯",
+      "target": "阿姆斯特朗",
+      "width": 15
+    },
+    {
+      "source": "布洛尔",
+      "target": "罗杰斯",
+      "width": 14
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "克莱索恩",
+      "width": 33
+    },
+    {
+      "source": "阿姆斯特朗",
+      "target": "麦克阿瑟",
+      "width": 12
+    },
+    {
+      "source": "布洛尔",
+      "target": "马斯顿",
+      "width": 12
+    },
+    {
+      "source": "罗杰斯",
+      "target": "马斯顿",
+      "width": 12
+    },
+    {
+      "source": "布伦特",
+      "target": "隆巴德",
+      "width": 12
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "罗杰斯太太",
+      "width": 22
+    },
+    {
+      "source": "布伦特",
+      "target": "麦克阿瑟",
+      "width": 11
+    },
+    {
+      "source": "罗杰斯太太",
+      "target": "隆巴德",
+      "width": 11
+    },
+    {
+      "source": "沃格雷夫",
+      "target": "马斯顿",
+      "width": 23
+    },
+    {
+      "source": "罗杰斯太太",
+      "target": "阿姆斯特朗",
+      "width": 10
+    },
+    {
+      "source": "隆巴德",
+      "target": "麦克阿瑟",
+      "width": 9
+    },
+    {
+      "source": "布伦特",
+      "target": "马斯顿",
+      "width": 9
+    },
+    {
+      "source": "布洛尔",
+      "target": "罗杰斯太太",
+      "width": 8
+    },
+    {
+      "source": "麦克阿瑟",
+      "target": "马斯顿",
+      "width": 8
+    },
+    {
+      "source": "布伦特",
+      "target": "罗杰斯太太",
+      "width": 8
+    },
+    {
+      "source": "麦克阿瑟",
+      "target": "布洛尔",
+      "width": 7
+    },
+    {
+      "source": "罗杰斯",
+      "target": "麦克阿瑟",
+      "width": 7
+    },
+    {
+      "source": "罗杰斯",
+      "target": "克莱索恩",
+      "width": 5
+    },
+    {
+      "source": "克莱索恩",
+      "target": "马斯顿",
+      "width": 4
+    },
+    {
+      "source": "麦克阿瑟",
+      "target": "罗杰斯太太",
+      "width": 4
+    },
+    {
+      "source": "麦克阿瑟",
+      "target": "克莱索恩",
+      "width": 4
+    }
+  ]

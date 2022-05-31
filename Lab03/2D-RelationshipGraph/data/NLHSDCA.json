@@ -1,0 +1,422 @@
+[
+    {
+      "source": "西蒙",
+      "target": "琳内特",
+      "width": 207
+    },
+    {
+      "source": "雷斯",
+      "target": "波洛",
+      "width": 186
+    },
+    {
+      "source": "西蒙",
+      "target": "波洛",
+      "width": 183
+    },
+    {
+      "source": "琳内特",
+      "target": "波洛",
+      "width": 181
+    },
+    {
+      "source": "西蒙",
+      "target": "杰奎琳",
+      "width": 159
+    },
+    {
+      "source": "波洛",
+      "target": "杰奎琳",
+      "width": 114
+    },
+    {
+      "source": "蒂姆",
+      "target": "波洛",
+      "width": 86
+    },
+    {
+      "source": "潘宁顿",
+      "target": "波洛",
+      "width": 82
+    },
+    {
+      "source": "琳内特",
+      "target": "潘宁顿",
+      "width": 77
+    },
+    {
+      "source": "科妮丽亚",
+      "target": "波洛",
+      "width": 66
+    },
+    {
+      "source": "雷斯",
+      "target": "潘宁顿",
+      "width": 65
+    },
+    {
+      "source": "罗莎莉",
+      "target": "波洛",
+      "width": 65
+    },
+    {
+      "source": "范索普",
+      "target": "波洛",
+      "width": 64
+    },
+    {
+      "source": "范索普",
+      "target": "科妮丽亚",
+      "width": 62
+    },
+    {
+      "source": "范斯凯勒",
+      "target": "波洛",
+      "width": 59
+    },
+    {
+      "source": "雷斯",
+      "target": "琳内特",
+      "width": 58
+    },
+    {
+      "source": "贝斯纳",
+      "target": "波洛",
+      "width": 55
+    },
+    {
+      "source": "琳内特",
+      "target": "杰奎琳",
+      "width": 51
+    },
+    {
+      "source": "科妮丽亚",
+      "target": "杰奎琳",
+      "width": 48
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "范斯凯勒",
+      "width": 44
+    },
+    {
+      "source": "西蒙",
+      "target": "潘宁顿",
+      "width": 43
+    },
+    {
+      "source": "雷斯",
+      "target": "贝斯纳",
+      "width": 41
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "波洛",
+      "width": 40
+    },
+    {
+      "source": "雷斯",
+      "target": "范斯凯勒",
+      "width": 38
+    },
+    {
+      "source": "蒂姆",
+      "target": "乔安娜",
+      "width": 38
+    },
+    {
+      "source": "雷斯",
+      "target": "西蒙",
+      "width": 37
+    },
+    {
+      "source": "雷斯",
+      "target": "杰奎琳",
+      "width": 36
+    },
+    {
+      "source": "蒂姆",
+      "target": "琳内特",
+      "width": 35
+    },
+    {
+      "source": "西蒙",
+      "target": "科妮丽亚",
+      "width": 35
+    },
+    {
+      "source": "贝斯纳",
+      "target": "西蒙",
+      "width": 35
+    },
+    {
+      "source": "贝斯纳",
+      "target": "科妮丽亚",
+      "width": 35
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "雷斯",
+      "width": 34
+    },
+    {
+      "source": "琳内特",
+      "target": "乔安娜",
+      "width": 33
+    },
+    {
+      "source": "蒂姆",
+      "target": "罗莎莉",
+      "width": 33
+    },
+    {
+      "source": "西蒙",
+      "target": "波尔热",
+      "width": 31
+    },
+    {
+      "source": "范斯凯勒",
+      "target": "科妮丽亚",
+      "width": 31
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "范索普",
+      "width": 31
+    },
+    {
+      "source": "西蒙",
+      "target": "范索普",
+      "width": 29
+    },
+    {
+      "source": "雷斯",
+      "target": "范索普",
+      "width": 27
+    },
+    {
+      "source": "雷斯",
+      "target": "波尔热",
+      "width": 26
+    },
+    {
+      "source": "波洛",
+      "target": "波尔热",
+      "width": 25
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "科妮丽亚",
+      "width": 25
+    },
+    {
+      "source": "贝斯纳",
+      "target": "杰奎琳",
+      "width": 25
+    },
+    {
+      "source": "西蒙",
+      "target": "蒂姆",
+      "width": 25
+    },
+    {
+      "source": "范索普",
+      "target": "杰奎琳",
+      "width": 24
+    },
+    {
+      "source": "雷斯",
+      "target": "科妮丽亚",
+      "width": 23
+    },
+    {
+      "source": "雷斯",
+      "target": "蒂姆",
+      "width": 22
+    },
+    {
+      "source": "蒂姆",
+      "target": "杰奎琳",
+      "width": 22
+    },
+    {
+      "source": "波洛",
+      "target": "乔安娜",
+      "width": 22
+    },
+    {
+      "source": "琳内特",
+      "target": "波尔热",
+      "width": 20
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "杰奎琳",
+      "width": 19
+    },
+    {
+      "source": "潘宁顿",
+      "target": "杰奎琳",
+      "width": 18
+    },
+    {
+      "source": "范索普",
+      "target": "潘宁顿",
+      "width": 17
+    },
+    {
+      "source": "贝斯纳",
+      "target": "范索普",
+      "width": 17
+    },
+    {
+      "source": "罗莎莉",
+      "target": "杰奎琳",
+      "width": 17
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "贝斯纳",
+      "width": 16
+    },
+    {
+      "source": "罗莎莉",
+      "target": "琳内特",
+      "width": 15
+    },
+    {
+      "source": "雷斯",
+      "target": "罗莎莉",
+      "width": 15
+    },
+    {
+      "source": "蒂姆",
+      "target": "潘宁顿",
+      "width": 14
+    },
+    {
+      "source": "贝斯纳",
+      "target": "范斯凯勒",
+      "width": 13
+    },
+    {
+      "source": "潘宁顿",
+      "target": "波尔热",
+      "width": 12
+    },
+    {
+      "source": "贝斯纳",
+      "target": "琳内特",
+      "width": 12
+    },
+    {
+      "source": "范斯凯勒",
+      "target": "琳内特",
+      "width": 12
+    },
+    {
+      "source": "蒂姆",
+      "target": "科妮丽亚",
+      "width": 11
+    },
+    {
+      "source": "贝斯纳",
+      "target": "波尔热",
+      "width": 11
+    },
+    {
+      "source": "范索普",
+      "target": "范斯凯勒",
+      "width": 11
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "西蒙",
+      "width": 11
+    },
+    {
+      "source": "范斯凯勒",
+      "target": "杰奎琳",
+      "width": 10
+    },
+    {
+      "source": "贝斯纳",
+      "target": "潘宁顿",
+      "width": 10
+    },
+    {
+      "source": "范斯凯勒",
+      "target": "罗莎莉",
+      "width": 10
+    },
+    {
+      "source": "贝斯纳",
+      "target": "蒂姆",
+      "width": 9
+    },
+    {
+      "source": "西蒙",
+      "target": "罗莎莉",
+      "width": 9
+    },
+    {
+      "source": "范索普",
+      "target": "琳内特",
+      "width": 8
+    },
+    {
+      "source": "蒂姆",
+      "target": "范索普",
+      "width": 8
+    },
+    {
+      "source": "贝斯纳",
+      "target": "罗莎莉",
+      "width": 8
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "蒂姆",
+      "width": 7
+    },
+    {
+      "source": "科妮丽亚",
+      "target": "潘宁顿",
+      "width": 7
+    },
+    {
+      "source": "蒂姆",
+      "target": "范斯凯勒",
+      "width": 6
+    },
+    {
+      "source": "科妮丽亚",
+      "target": "琳内特",
+      "width": 6
+    },
+    {
+      "source": "波尔热",
+      "target": "杰奎琳",
+      "width": 5
+    },
+    {
+      "source": "杰奎琳",
+      "target": "乔安娜",
+      "width": 4
+    },
+    {
+      "source": "范斯凯勒",
+      "target": "潘宁顿",
+      "width": 4
+    },
+    {
+      "source": "鲍尔斯",
+      "target": "琳内特",
+      "width": 4
+    },
+    {
+      "source": "蒂姆",
+      "target": "波尔热",
+      "width": 4
+    }
+  ]
