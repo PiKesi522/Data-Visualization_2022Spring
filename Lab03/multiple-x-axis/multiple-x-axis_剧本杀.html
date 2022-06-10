@@ -1,0 +1,215 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=multiple-x-axis&code=CYQwLiCMC8DaAcA2eBWANAKEgBgCz200gHYBOQrY4-TAZmxowuQCYWLaVb5bcjtIiRMQotaiFqXqZcuapCmYAuhlAQWcWsRS4xMlGwOYUAyRRTxiuIZiF4UiWy1nXb3UlWOJBxRxhTEnDb-pHI6Mrjc2BQqaiC0cCZ4iLTGHpC0kG4MJphIAqSkedi0znz-QnJ-1mIsjLjYiORFGLrIkOUN0d50cvhZGCoAxgD2AHYAzmAABKMANiMAThPT0NOwAOQAxDoiAMKIG2jT2wCip0JCR9u0AGa4OtgbSgDcGCMADmAAluOr0wBvDDTWYjBaLABcoPBE0wILAIzBPw-UKBIPhi2-AHMsQBTSEnMbjXFHYHokAAD2-EwACiNvmMwPjUWT0dMwABPD64qEbIaLEYTCYbVnTAC-ZLFcOmc1xeLGwFRUrJWMxisBooRKOmImlIIARiMwAiALZQkyS6UUgCCVImUNgorRbPZXJ5JyG4DlSw5pJd00p1IAKt8hgBrFn-kEgObYsYAdW-YAAFgAZED63FzKFgRYAV1xopByv9gYmqYZ7ud_vGAC18SMobcYxNcXqXbGxriAMqc2WRqMg-ZLKHD5awSAqQcS_0ll1lukMpkE6sdjNZgeD25LE3gZdNvNjIY_P4ACg-IEWIBNEwAlBrB2zFriwHnFmNpqei4-NjTn0Nvg-JNwF-D8TmmABqb9BwvK8bwAOgANxjAtIOgqNz0va8Jng1tMVxCYABFwBAeDZTGLEU2mAB-E5ACx_jZIOmWDsNw_FvgI4iIFgbAlHguJpl5DZb3QtlbzeR9xXQmcXTnNkAHp5OY59jQ4xYAFo4yWQt_TiB0NnYQR1MgI4TkMxB1JYUyDIECzaGs8z1NwBzbPUlAXKMw5jhsoziA8iz4H89TSCCnBQpM7zHMgKyp3ROSHxdTluV5T0mSxH0_XnO0Q3DTd51jLEEyTNN12zdl8x02T22jO0Ky7PK2TrBsmxbNt0M7Hs-yrUToRHXrx146Tv3imrqUXRlmQS_05lKhqXW3RZd2NSbbkPY9QM_Fib3vVdBxUt8Py_SS2V_f9AOAk8wMYqDjvRLacOQuZUJu27NqwhC8I4oiSLI3EKKo2iNgYpj7rY_Dvu43j-JIwSTmEnqQXEnqZNnYbqumRTlJfH58U0wrtO_PT1h8lBjI80mrMigRSfsqnIFJ5y6dJ9ymfUryzOp9S_NZwLWZC1mwoFiKOfp4yYtFeLdtdZKPS9dLFl9dGyxyiMpvyuNExTdNMzK3MCzR78yzq7rByagUWrmVt0ZBDrew5fs1f9MdRzBJYJlgFhYtR2clbtcb90d9EZp1ua2QWpaA9Wo9LreuC70D_19vfT8EfRU7cQAoCIBj8CXtu0HHue1OQUwuOwa-rjSPIyjkxo-jruY96cM-ziSJ4viBKEkTbqRySUdkg3_Uxj4VJxjStOfQmSP0wzSeFknLPJ9TaZFhml5Z1e2aX7nN95zf-c3wXD_n2exeeCWySUaUOVtakHSdb8kvdDZC5JC-QSvskW_tdYH_9MZrzP0AOZKgAac0AALmmU2RP15B1SB6IbR2gAJIKlxBSKEAx_QTBNIiFMOYKro1xCaD4yYQATDvgnaY24hh5h_hsb-IofZTwgFCOIkAJbtilgAk0z9AA1BoARNdACsroAR304HwjdDAysojphYJwcmPBBYCFEJIWQn-UsQRUJobyehg8XREziCwdhf8XRcN4XwwA8DqABfoqR0CTiwPRgg6kyDgCoKhCwdGMijRyPKgo78hDiGkPIWoyhIxqG0O0Yw3S09phxFoIYj-GAxQvCAA
+	请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    data1=[8685,
+10480,
+1790,
+1778,
+308,
+0,
+68220,
+353834,
+1016670,
+2362930,
+4478193,
+]
+data2=[375423,
+452252,
+501290,
+587466,
+660456,
+624446,
+638977,
+561676,
+573566,
+594754,
+443800,
+]
+data3=[500463,
+597131,
+630850,
+860199,
+803244,
+566476,
+462328,
+406909,
+426814,
+400061,
+347481,
+]
+const colors = ['#5470C6', '#EE6666','#3f4540'];
+option = {
+  color: colors,
+  tooltip: {
+    trigger: 'none',
+    axisPointer: {
+      type: 'cross'
+    }
+  },
+  legend: {},
+  grid: {
+    top: 70,
+    bottom: 50
+  },
+  xAxis: [
+    {
+      type: 'category',
+      axisTick: {
+        alignWithLabel: true
+      },
+      axisLine: {
+        onZero: false,
+        lineStyle: {
+          color: colors[1]
+        }
+      },
+      axisPointer: {
+        label: {
+          formatter: function (params) {
+            return (
+              'Precipitation  ' +
+              params.value +
+              (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+            );
+          }
+        }
+      },
+      // prettier-ignore
+      data: ['2016-1', '2016-2', '2016-3', '2016-4', '2016-5', '2016-6', '2016-7', '2016-8', '2016-9', '2016-10', '2016-11', '2016-12']
+    },
+    {
+      type: 'category',
+      axisTick: {
+        alignWithLabel: true
+      },
+      axisLine: {
+        onZero: false,
+        lineStyle: {
+          color: colors[0]
+        }
+      },
+      axisPointer: {
+        label: {
+          formatter: function (params) {
+            return (
+              'Precipitation  ' +
+              params.value +
+              (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+            );
+          }
+        }
+      },
+      // prettier-ignore
+      data: ['2015-1', '2015-2', '2015-3', '2015-4', '2015-5', '2015-6', '2015-7', '2015-8', '2015-9', '2015-10', '2015-11', '2015-12']
+    },
+    {
+      type: 'category',
+      axisTick: {
+        alignWithLabel: true
+      },
+      axisLine: {
+        onZero: false,
+        lineStyle: {
+          color: colors[2]
+        }
+      },
+      axisPointer: {
+        label: {
+          formatter: function (params) {
+            return (
+              'Precipitation  ' +
+              params.value +
+              (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+            );
+          }
+        }
+      },
+      // prettier-ignore
+      data: ['2015-1', '2015-2', '2015-3', '2015-4', '2015-5', '2015-6', '2015-7', '2015-8', '2015-9', '2015-10', '2015-11', '2015-12']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  series: [
+    {
+      name: '剧本杀',
+      type: 'line',
+      xAxisIndex: 1,
+      smooth: true,
+      emphasis: {
+        focus: 'series'
+      },
+      data: data1
+    },
+    {
+      name: '悬疑电影',
+      type: 'line',
+      smooth: true,
+      emphasis: {
+        focus: 'series'
+      },
+      data: data2
+    },
+    {
+      name: '悬疑小说',
+      type: 'line',
+      xAxisIndex: 2,
+      smooth: true,
+      emphasis: {
+        focus: 'series'
+      },
+      data: data3
+    },
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
