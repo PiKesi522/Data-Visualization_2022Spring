@@ -1,0 +1,252 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=line-tooltip-touch&code=DYUwLgBARghgziCBeCBqAdiA7hAIjMEACgCYAGARgDYAaCATjoGYBKAbgChRIB7TfAJ7IIJACwQAVBCZUyZSRApyynbhABuMYAFcQAIXiIUAWQIALAHQAnGOgAmPALZEWCpnNXgNW3QYQlhUzBLG3snFwUAVhUuLzsCGGEAbQBdT0h4sBgAlFTOADMeKwgiTWKAS2EKNghKgB5FFVrUVFcAbw4Ib2L0HhwUTBx8QiIiWAQ0FD4QQRZ2Tu6IeIEAZTBi3N6sCwBzcAAxbWBgAE0QGCsXOi3d8GM-YIjURWu-27Bh4hYUiwArHnK6CIAHIALTA-ZdTQ6fSGQLmaw8bT2UZBEK2BzOVygiBkCyRVxSchobwwvwgSGk3xwuooeQAMnpJWh1ImJgRoUxESk7jIlMyMAsAAdtHAzEQkss1lY6CzYQgUpS5eSchA0YjkXZURyMeFsbj8YSRPJnsrDCQlT55SAArTcRBGcyrSr4cFrLqsVE-ZwugKSMLReLJTBVutZc7zYrOABfDg8IVgcp8YQdLqJsCgABcEFTXQgoHyYGzwIAxiB0IQrMCaAs0yAAB5FiDAgAqPB4iaFEAxSwSAC1244IMn7lByqA8CB1OUy8CFtGa11QHt7Nnc2n48WoB2wE5q7Xe1ls0lgQBJCvlxN8YEpeeLiC7njATtrg_rco7PZWADy6GLvUwfc8wgIUeDgcorz_CB8mREtIJKBN2gPLorHAbQrHQCAkgTJIyBSOgKHcNID1jLoFwWR9gG3etX2Agsm1LS8QCre8uggkBHBWcoAC8QGzEhIlYh9NwgSJBIPfJzjAdC-JzZDDxgAcnFo4C8wEABBetyjgc87Abf9pjnVSIHI4zULgXdULXUi8xs0yIHrTTtJUtMBCFWTgUTRwQCAvMYC0uAAAUAQvKwXLzOVi3IahQSUUEAHZfOAuB0BgIVs3WXQhKXQEQDWAQszk4yuhLJ8imLABieLIgADgoPRcCS1SsHKOxgn4-T7LomAoBAYBwuSsw-gyqwsvkrpCisRwCErbMYPQOCk0woghQuGBHDgJDirzVDpIwiAQBLMwLjAOALEm6awHOopLpbcpvJBAQnoEUFjGMUE7DsasQLWjaLDlSljK61TYBLABrHYrCRewAGEyrC5sqtq-rGs67KIGO-xCvXVSxWGh9RpAdGSvhyrqrqhqjNUmyyKEuAhWACCABlcoGiA8awOatAQEi7wWDSAvCsA3I8uUmv87S7vBtnAXAvSRt0Ei6YZ5nWaK3Ghs56DuZAJWDwluAmZ6vqZfQOXZMyon5IumbmOLNo5WjAAddAqdpg9uOzJQ-a6SHWqFkSKCUIT6K98TgKsD8zCbChw7zMwQCjmPZB9hSlMcY8Dxx1z3OLWXWp89HgihsAM1k6Jea6fCFgQSOQDgTPgOziBUu84t9hgMHEGGbImpzjzGcA9G4Ecdt2oJsbjLgARHG3frmxLcorBLUA-_Zme5643jszj5L1pV9AdmLGB1GYmA9jX9jOOF7HxogUrgHKxGyHi-KyH2fY3ds4esml5sYDXhcc4-Vb7bQfk_QYB0jonTOpDNKZgZwWBZpgC4ABxGwdhyiXiIGQOguDcQEToEkO-XRm7GR4PkfICAmy4JIXmcBCNgRWB2LAIgtUaCvxoCQJgTAaB4hqiwL-QNiZ5jIapChVDwBexEcBBhxZmGsPYZw7hvC8SsCEdTO-io0byQFF7OQesm7yVbh5DuXc8AJAoGvYWudmyD0LvJEeY8zAKytlPX-YNj5r2nrPJ8xZF7L1XsPDeT4t7l2HvvQeR9_6nxsBfdGV8QGyTEXIxG-wBL0Hip_HRxkgEwCSWzEmj8EaQMOsdKwp1dg2CFAgksSDcpoIwVgisOC8FtJeFhOhYjgISOodmWh21ZGk2bAomApBCIcJIDQCg5A-EWAERo4CwNjLdLzL0qRLw6FFKfkwlhYySATPilMmZuC1GCLoTTVS2jhG6ISNmP0lcIC3mjGwIAA
+	请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+      let base = +new Date(1950, 0, 1);
+      let year = 1950;
+      let europe = [25, 36, 37, 25, 17, 13, 28, 43, 48, 35];
+      let america = [18, 26, 28, 15, 18, 25, 30, 35, 41, 38];
+      let china = [0, 0, 0, 0, 0, 2, 12, 10, 34, 15];
+      let japan = [10, 12, 10, 9, 11, 16, 94, 116, 147, 95];
+
+      let data = [];
+      let data2 = [];
+      let data3 = [];
+      let data4 = [];
+      for (var i = 0; i < 10; i++) {
+          var now = new Date(year, 0, 1);
+          if (year < 2000) year += 10;
+          else year += 5;
+          var dayStr = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-');
+
+          data.push([dayStr, europe[i]]);
+
+          data2.push([dayStr, america[i]]);
+          data3.push([dayStr, china[i]]);
+          data4.push([dayStr, japan[i]]);
+      }
+      option = {
+          title: {
+              left: 'center',
+              text: 'Tootip and dataZoom on Mobile Device'
+          },
+          legend: {
+              top: 'bottom',
+              data: ['Intention']
+          },
+          tooltip: {
+              triggerOn: 'none',
+              position: function (pt) {
+                  return [pt[0], 130];
+              }
+          },
+          toolbox: {
+              left: 'center',
+              itemSize: 25,
+              top: 55,
+              feature: {
+                  dataZoom: {
+                      yAxisIndex: 'none'
+                  },
+                  restore: {}
+              }
+          },
+          xAxis: {
+              type: 'time',
+              axisPointer: {
+                  value: '2016-10-7',
+                  snap: true,
+                  lineStyle: {
+                      color: '#7581BD',
+                      width: 2
+                  },
+                  label: {
+                      show: true,
+                      formatter: function (params) {
+                          return echarts.format.formatTime('yyyy-MM-dd', params.value);
+                      },
+                      backgroundColor: '#7581BD'
+                  },
+                  handle: {
+                      show: true,
+                      color: '#7581BD'
+                  }
+              },
+              splitLine: {
+                  show: false
+              }
+          },
+          yAxis: {
+              type: 'value',
+              axisTick: {
+                  inside: true
+              },
+              splitLine: {
+                  show: false
+              },
+              axisLabel: {
+                  inside: true,
+                  formatter: '{value}\n'
+              },
+              z: 10
+          },
+          grid: {
+              top: 110,
+              left: 15,
+              right: 15,
+              height: 160
+          },
+          dataZoom: [
+              {
+                  type: 'inside',
+                  throttle: 50
+              }
+          ],
+          series: [
+              {
+                  name: 'europe',
+                  type: 'line',
+                  smooth: true,
+                  symbol: 'circle',
+                  symbolSize: 5,
+                  sampling: 'average',
+                  itemStyle: {
+                      color: '#0770FF'
+                  },
+                  stack: 'a',
+                  areaStyle: {
+                      color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                          {
+                              offset: 0,
+                              color: 'rgba(10,150,10,0.8)'
+                          },
+                          {
+                              offset: 1,
+                              color: 'rgba(10,150,10,0.3)'
+                          }
+                      ])
+                  },
+                  data: data
+              },
+              {
+                  name: 'america',
+                  type: 'line',
+                  smooth: true,
+                  stack: 'a',
+                  symbol: 'circle',
+                  symbolSize: 5,
+                  sampling: 'average',
+                  itemStyle: {
+                      color: '#F2597F'
+                  },
+                  areaStyle: {
+                      color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                          {
+                              offset: 0,
+                              color: 'rgba(50,100,50,0.8)'
+                          },
+                          {
+                              offset: 1,
+                              color: 'rgba(50,100,50,0.3)'
+                          }
+                      ])
+                  },
+                  data: data2
+              },
+              {
+                  name: 'china',
+                  type: 'line',
+                  smooth: true,
+                  stack: 'a',
+                  symbol: 'circle',
+                  symbolSize: 5,
+                  sampling: 'average',
+                  itemStyle: {
+                      color: '#F2597F'
+                  },
+                  areaStyle: {
+                      color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                          {
+                              offset: 0,
+                              color: 'rgba(100,50,100,0.8)'
+                          },
+                          {
+                              offset: 1,
+                              color: 'rgba(100,50,100,0.3)'
+                          }
+                      ])
+                  },
+                  data: data3
+              },
+              {
+                  name: 'japan',
+                  type: 'line',
+                  smooth: true,
+                  stack: 'a',
+                  symbol: 'circle',
+                  symbolSize: 5,
+                  sampling: 'average',
+                  itemStyle: {
+                      color: '#F2597F'
+                  },
+                  areaStyle: {
+                      color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                          {
+                              offset: 0,
+                              color: 'rgba(150,10,150,0.8)'
+                          },
+                          {
+                              offset: 1,
+                              color: 'rgba(150,10,150,0.3)'
+                          }
+                      ])
+                  },
+                  data: data4
+              }
+          ]
+      };
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

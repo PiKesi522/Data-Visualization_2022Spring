@@ -1,0 +1,205 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=line-tooltip-touch&code=GYWwzgvA2gnATAdhggrAGgIwA4XawzAFgGZ44YiEAGQwuIjOjDTYjOYkzK4gNlPQwafFjBIY2aMcnxospfCgC6AKDAAbANbR5_OmhVsEWLLwKGUvGL14sV1ZlQxUDdQtgzmUxBCUIVDQitEO0ZTKisDR1wYLCiqGFiYdBUsBMIsOBVVdQBTABcAAgBPXIBDACcIOCcMFTyigCMysFzCiEKAagA7XIB3QoARMvzcgAoajF40QopC4gBKAG56gsKAExGy9sKoJRWGja24Hb2V4AB7CsKxgDdKwoBLHaolp8KAHkLmN8fOzoWhQA3ipCoV7tduhcBh1egNhqMxqVKphMMtQSVyhVOhAMCswRCjsUAMr5a4dKBQvoAOgA5gUAGIAV3U6gAmlixgsZlS6QUALIXbr5AAWXK63x50L5-QR4wWSmpACsLo9umMAOQAWg16LBm3yZWpAAcmWAxVBNiSyTNQGAoI8lEo9UdDXATWaLVbSRUZhpNA6neiAL4qC7G_KPIU7EFgyP5PIALmBGLBeWA-WTGoAxrlhbkKhqDGC47kAB6ZwoagAqFwukeNhTK3XWrrKAC06yBCtHBY1Hnkhrlbo9cxqMcHi4U8vSW8nYyX8uGs4160uQEXU23k1ANQBJfPCqPdDWqMGTjFLi7qBvzrdkx60-kVADy3SzUN6m5LhWNFzAjyRkKybAEy3TZkB3Q3BGgILj-FQFEyFRQVAEZQFQSgzBIGH4iWobnlOV7qKuZZ3j-6aVjmeajIWU5goBuQgMSjwAF65MmcApD-S7GsmKBcSWwDlPkSHsSmP76lsnYXCAZESWCxQAIJlo8YAHus5YfkKuTjvJF7yQhYBLgh874XhE5TmWymqXJcbFMaYkapGIA6XRTYqWAAAKqr5hUtklvc6hMo5ky8Fqzhagg34SWA3RlLxhRksFblpmquSksUSbifJhTZteVxZgAxKgWAYAAQoM0XyX0jzrKKHFbgRjXTmUjS5Oo_k_ua0LJkluQpYJVwgCMNEgWBEHHtBlRlOAsHNfBiHIYUuTZiKlT5GA1KXBUw35FtQ0jNWjwuZqxRncUWr8vyWrrOsRa_tN4DUoFwUunpA1gs02aaLSFQXGB6wAML5X5VbFSgpUVbpEn6RJa0tllcExSKPWJRUyXzblINFSV5WVc1ZlNV1xrqIBAAyaWdYU3V9CBZTqK0W5mbDSkef5-T2Y5L2uVuZQeUd31U2qAEab16O5EzblgCT5OU9lXUo7ThTAPTjM_rDYJ86pZOte1QvdCLYl9QN227aNVZAtzwYADonpLW4scmzgWRiv21ezy7fM4bkUU7AlghUj4ipWGD-4UIq5EHIe8FQLuSYa0mybsW5I3ZDlZsLtU8_Jop_fkCZiSgsfqximEYq0ge5GAO4p81cUuVmgDxnoAKDqAJYmgD1plVi6c1mpNfgNYAgHW9Voxj8lgMUICrh1VbZo8FTZnkXdghPU_XsxbF8QPM0y90tJZmUtwFmU9LL08oxMRziOY3l6gFWDVAINQDIMtD6sD4agtVmUZ-VOUGXXxyljO-oM4TLVWutTav14oilHNSCmvRKgAHEKhlHWI8aiYwXCFGwdglgycgFglTjlC4wBgCtErC4TGP5b73w1BUWkzQxgQzQE_NAHBiBoCoNSLACw345Q1jlYh8lSHkIKE7D6ElaGg3oYwsozC4hsI4Vw6kix-F6Uxs6AmA0DRlGTLo-2P5iH10coAPU9ABFxoAeE1ADYtoAaUUz4c3TlWPu2cYpD3rCKMWY8Yqf00AfM-q9p5ZjngvJeA9J7Tw3oXbeIBd772_kfVBp8BoMUvplMSwjgF0MKgyTiyBX7aOan_MoACMk32xoUMBK01oVA2nSVBxpYHZngWlZBqD0GYNwTMPBMwoDUPloQ0RFDkxUMISWaRWYGFMLgBIVh9B2AuG4bw9RMNJFEP6WCIZ4jJQbKyTIqZ8iZmcIQPMmoKi1H9MJhJLR71mq6P0ccJmpcVDBiWEAA
+	请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    fms=[927975,1851887,1439229,1470442,1414211,1312343,1036395,904361,943131,949787,839875]
+slk=[836342,
+3178867,
+3569661,
+7011010,
+4241817,
+5374349,
+3469271,
+1486069,
+1105198,
+1099895,
+809482
+]
+let year=2011
+let base = +new Date(2016, 9, 3);
+let data = [];
+let data2 = [];
+for (var i = 0; i < 11; i++) {
+  var now = new Date(year,1,1);
+  year+=1;
+  var dayStr = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-');
+  data.push([dayStr, fms[i]]);
+  data2.push([dayStr, slk[i]]);
+}
+option = {
+  title: {
+    left: 'center',
+    text: 'Tootip and dataZoom on Mobile Device'
+  },
+  legend: {
+    top: 'bottom',
+    data: ['Intention']
+  },
+  tooltip: {
+    triggerOn: 'none',
+    position: function (pt) {
+      return [pt[0], 130];
+    }
+  },
+  toolbox: {
+    left: 'center',
+    itemSize: 25,
+    top: 55,
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {}
+    }
+  },
+  xAxis: {
+    type: 'time',
+    axisPointer: {
+      value: '2016-10-7',
+      snap: true,
+      lineStyle: {
+        color: '#7581BD',
+        width: 2
+      },
+      label: {
+        show: true,
+        formatter: function (params) {
+          return echarts.format.formatTime('yyyy-MM-dd', params.value);
+        },
+        backgroundColor: '#7581BD'
+      },
+      handle: {
+        show: true,
+        color: '#7581BD'
+      }
+    },
+    splitLine: {
+      show: false
+    }
+  },
+  yAxis: {
+    type: 'value',
+    axisTick: {
+      inside: true
+    },
+    splitLine: {
+      show: false
+    },
+    axisLabel: {
+      inside: true,
+      formatter: '{value}\n'
+    },
+    z: 10
+  },
+  grid: {
+    top: 110,
+    left: 15,
+    right: 15,
+    height: 160
+  },
+  dataZoom: [
+    {
+      type: 'inside',
+      throttle: 50
+    }
+  ],
+  series: [
+    {
+      name: '福尔摩斯',
+      type: 'line',
+      smooth: true,
+      symbol: 'circle',
+      symbolSize: 5,
+      sampling: 'average',
+      itemStyle: {
+        color: '#0770FF'
+      },
+      stack: 'a',
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgba(58,77,233,0.8)'
+          },
+          {
+            offset: 1,
+            color: 'rgba(58,77,233,0.3)'
+          }
+        ])
+      },
+      data: data
+    },
+    {
+      name: '神探夏洛克',
+      type: 'line',
+      smooth: true,
+      stack: 'a',
+      symbol: 'circle',
+      symbolSize: 5,
+      sampling: 'average',
+      itemStyle: {
+        color: '#F2597F'
+      },
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgba(213,72,120,0.8)'
+          },
+          {
+            offset: 1,
+            color: 'rgba(213,72,120,0.3)'
+          }
+        ])
+      },
+      data: data2
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
