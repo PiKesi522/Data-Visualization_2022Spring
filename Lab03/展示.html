@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height :100%">
+
+<head>
+    <title>展示</title>
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./WordCloud/index.css">
+    <style>
+        #jump,#jump3, #jump4 {
+            /* visibility: hidden; */
+            float: right;
+            height: 80px;
+            width: 200px;
+            background-color: aliceblue;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 600;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* box-shadow: gray 2px 2px; */
+            border-radius: 5px;
+        }
+        #go_back {
+            /* visibility: hidden; */
+            float: right;
+            height: 80px;
+            width: 200px;
+            background-color: aliceblue;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 600;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* box-shadow: gray 2px 2px; */
+            border-radius: 5px;
+        }
+        #jump1, #jump2 {
+            /* visibility: hidden; */
+            float: left;
+            height: 80px;
+            width: 200px;
+            background-color: aliceblue;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 600;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* box-shadow: gray 2px 2px; */
+            border-radius: 5px;
+        }
+            #go_back，#jump,#jump1, #jump2, #jump3, #jump4:hover {
+                cursor: pointer;
+                box-shadow: gray 2px 2px;
+            }
+
+        #go_back，#jump, #jump1, #jump2, #jump3, #jump4:active {
+            box-shadow: gray -2px -2px;
+        }
+
+        #go_back，#jump, #jump1, #jump2, #jump3, #jump4:link {
+            box-shadow: gray 4px 4px;
+        }
+    </style>
+
+</head>
+
+<body id="dad" style="height :100%">
+
+    <div id="container" style="height: 100%"></div>
+    <script src='./WordCloud/dist/echarts.min.js'></script>
+    <script src='./WordCloud/dist/echarts-wordcloud.js'></script>
+    <script src='./WordCloud/dist/d3.v3.min.js'></script>
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/three-spritetext"></script>
+    <script src="//unpkg.com/three/examples/js/renderers/CSS2DRenderer.js"></script>
+    <script src="//unpkg.com/3d-force-graph"></script>
+
+    <script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
+
+
+    <script type="text/javascript">
+        
+        
+        var display_page = function (i) {
+            window.devicePixelRatio = 1.25;
+            var ratio = window.devicePixelRatio / 1.25;
+            var rate = screen.width / this.clientWidth;
+            //console.log(ratio)
+            
+            //每次展示新的图前把旧的图删掉 并重新附加上事件监听器
+            $('#container').remove();
+            $('#container1').remove();
+            $('#change_style').remove();
+            $('#go_back').remove();
+            $('#jump1').remove();
+            $('#jump2').remove();
+            $('#jump3').remove();
+            $('#jump4').remove();
+            $('#dad').append('<div id="container" style="width: 100%; height: 100%; margin: 0;"></div>');
+            document.getElementById("container").addEventListener('DOMMouseScroll', mousewheel, false);//firefox
+            document.getElementById("container").onmousewheel = mousewheel;//chrome
+            if (i == 1) {//豆瓣畅销推理小说图
+
+                var dom = document.getElementById('container');
+                var myChart = echarts.init(dom, null, {
+                    renderer: 'canvas',
+                    useDirtyRect: false
+                });
+
+                var app = {};
+
+                var option;
+
+                europe = [25, 36, 37, 25, 17, 13, 28, 43, 48, 35,];
+                america = [18, 26, 28, 15, 18, 25, 30, 35, 41, 38,];
+                china = [0, 0, 0, 0, 0, 2, 12, 10, 34, 15,];
+                japan = [10, 12, 10, 9, 11, 16, 94, 116, 147, 95,];
+                datanew = []
+                years = ['1950', '1960', '1970', '1980', '1990', '2000', '2005', '2010', '2015', '2020'];
+                for (var i = 0; i < 10; i++) {
+                    datanew[4 * i] = [years[i], europe[i], 'Europe'];
+                    datanew[4 * i + 1] = [years[i], america[i], 'America'];
+                    datanew[4 * i + 2] = [years[i], china[i], 'China'];
+                    datanew[4 * i + 3] = [years[i], japan[i], 'Japan'];
+                }
+                option = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'line',
+                            lineStyle: {
+                                color: 'rgba(255,0,0,0.2)',
+                                width: 1,
+                                type: 'solid'
+                            }
+                        }
+                    },
+                    legend: {
+                        data: ['Europe', 'America', 'China', 'Japan']
+                    },
+                    singleAxis: {
+                        top: 50,
+                        bottom: 50,
+                        axisTick: {},
+                        axisLabel: {},
+                        type: 'time',
+                        axisPointer: {
+                            animation: true,
+                            label: {
+                                show: true
+                            }
+                        },
+                        splitLine: {
+                            show: true,
+                            lineStyle: {
+                                type: 'dashed',
+                                opacity: 0.2
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            type: 'themeRiver',
+                            emphasis: {
+                                itemStyle: {
+                                    shadowBlur: 20,
+                                    shadowColor: 'rgba(0, 255, 0, 0.8)'
+                                }
+                            },
+                            data: datanew
+
+                        }
+                    ]
+                };
+
+                if (option && typeof option === 'object') {
+                    myChart.setOption(option);
+                }
+
+                window.addEventListener('resize', myChart.resize);
+            }//豆瓣推理
+            else if (i == 2) {//旭日图
+                $('#dad').append('<input id="jump1" value="阿加莎">');
+                $('#dad').append('<input id="jump2" value="福尔摩斯">');
+                $('#dad').append('<input id="jump3" value="东野圭吾">');
+                $('#dad').append('<input id="jump4" value="词云">');
+                $('#jump1').click(function (e) {
+                    index = 3;
+                    display_page(index);
+
+                })
+                $('#jump2').click(function (e) {
+                    index = 6;
+                    display_page(index);
+                })
+                $('#jump3').click(function (e) {
+                    index = 4;
+                    display_page(index);
+                })
+                $('#jump4').click(function (e) {
+                    index = 7;
+                    display_page(index);
+                })
+                $('#container').click(function (e) {
+                    width = this.clientWidth, height = this.clientHeight;
+                    x = e.clientX, y = e.clientY;
+                    centerX = width / 2, centerY = height / 2;
+                    r1 = 40 * ratio / 1536*screen.width
+                    r2 = 100 * ratio / 1536 * screen.width
+                    r3 = 130 * ratio / 1536 * screen.width
+                    r4 = 280 * ratio / 1536 * screen.width
+                    dx = x - centerX;
+                    dy = y - centerY;
+                    dis = dx * dx + dy * dy
+                    // 阿加莎 center :760,350  r:40~100 MaxY: 430 index=3
+                    //福尔摩斯 830,460->890,560 index=6
+                    //东野圭吾 center: 760,350 r:40~100 MinX：670 index=4
+                    
+                    
+                    
+                    
+                    if (dis <= r2 * r2 && dis >= r1 * r1) {
+                        if (x > centerX ) {
+                            index = 3;
+                            display_page(index);
+                        }
+                        else if (y > centerY &&  x < centerX) {
+                            index = 4;
+                            display_page(index);
+                        }
+                    }
+                    else if (dis > r3 * r3 && dis < r4 * r4 && x > centerX + r3 * 0.5 && x < centerX + r4 * 0.5 && y > centerY + r3 * 0.86 && y < centerY + r4*0.86) {
+                        index = 6;
+                        display_page(index);
+
+                    }
+                    else if (x < centerX && dis < r1 * r1) {
+                        index = 7;
+                        display_page(index);
+                    }
+
+                })
+                var dom = document.getElementById('container');
+                var myChart = echarts.init(dom, null, {
+                    renderer: 'canvas',
+                    useDirtyRect: false
+                });
+                var app = {};
+
+                var option;
+
+                const colors = ['#FFAE57', '#FF7853', '#EA5151', '#CC3F57', '#9A2555'];
+                const bgColor = '#2E2733';
+                const itemStyle = {
+                    star5: {
+                        color: colors[0]
+                    },
+                    star4: {
+                        color: colors[1]
+                    },
+                    star3: {
+                        color: colors[2]
+                    },
+                    star2: {
+                        color: colors[3]
+                    }
+                };
+                const data = [
+                    {
+                        name: '英美',
+                        itemStyle: {
+                            color: colors[1]
+                        },
+                        children: [
+                            {
+                                name: '阿加莎',
+                                children: [
+                                    {
+                                        name: '9.5',
+                                        children: [
+                                            {
+                                                name: '无人生还'
+                                            },
+                                            {
+                                                name: '罗杰疑案'
+                                            },
+                                            {
+                                                name: '尼罗河上的惨案'
+                                            },
+                                            {
+                                                name: '帷幕'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: '9.0',
+                                        children: [
+                                            {
+                                                name: '东方快车谋杀案'
+                                            },
+                                            {
+                                                name: 'ABC谋杀案'
+                                            },
+                                            {
+                                                name: '阳光下的罪恶'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: '8.5',
+                                        children: [
+                                            {
+                                                name: '控方证人'
+                                            },
+                                            {
+                                                name: '斯泰尔斯庄园奇案'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: '柯南道尔',
+                                children: [
+                                    {
+                                        name: '9.5',
+                                        children: [
+                                            {
+                                                name: '福尔摩斯探案集'
+                                            }
+                                        ]
+                                    },
+                                ]
+                            },
+                            {
+                                name: '埃勒里',
+                                children: [
+                                    {
+                                        name: '9.0',
+                                        children: [
+                                            {
+                                                name: 'x的悲剧'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: '霍尔特',
+                                children: [
+                                    {
+                                        name: '9.0',
+                                        children: [
+                                            {
+                                                name: '恶狼之夜'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: '日本',
+                        itemStyle: {
+                            color: colors[2]
+                        },
+                        children: [
+                            {
+                                name: '东野圭吾',
+                                children: [
+                                    {
+                                        name: '9.5',
+                                        children: [
+                                            {
+                                                name: '嫌疑人X的献身'
+                                            },
+                                            {
+                                                name: '白夜行'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: '9.0',
+                                        children: [
+                                            {
+                                                name: '悪意'
+                                            },
+                                            {
+                                                name: '放学后'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: '8.5',
+                                        children: [
+                                            {
+                                                name: '希望之线 '
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: '横沟正史',
+                                children: [
+                                    {
+                                        name: '9.5',
+                                        children: [
+                                            {
+                                                name: '金田一探案集'
+                                            }
+                                        ]
+                                    },
+                                ]
+                            },
+                            {
+                                name: '伊坂幸太郎',
+                                children: [
+                                    {
+                                        name: '9.0',
+                                        children: [
+                                            {
+                                                name: '金色梦乡'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: '我孫子武丸',
+                                children: [
+                                    {
+                                        name: '9.5',
+                                        children: [
+                                            {
+                                                name: '杀戮之病'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: '松本清张',
+                                children: [
+                                    {
+                                        name: '9.5',
+                                        children: [
+                                            {
+                                                name: '点与线'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: '9.0',
+                                        children: [
+                                            {
+                                                name: '零的焦点'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: '绫辻行人',
+                                children: [
+                                    {
+                                        name: '9.5',
+                                        children: [
+                                            {
+                                                name: '钟表馆幽灵'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ];
+
+                for (let j = 0; j < data.length; ++j) {
+                    let level1 = data[j].children;
+                    for (let i = 0; i < level1.length; ++i) {
+                        let block = level1[i].children;
+                        let bookScore = [];
+                        let bookScoreId;
+                        for (let star = 0; star < block.length; ++star) {
+                            let style = (function (name) {
+                                switch (name) {
+                                    case '9.5':
+                                        bookScoreId = 0;
+                                        return itemStyle.star5;
+                                    case '9.0':
+                                        bookScoreId = 1;
+                                        return itemStyle.star4;
+                                    case '8.5':
+                                        bookScoreId = 2;
+                                        return itemStyle.star3;
+                                    case '2☆':
+                                        bookScoreId = 3;
+                                        return itemStyle.star2;
+                                }
+                            })(block[star].name);
+                            block[star].label = {
+                                color: style.color,
+                                downplay: {
+                                    opacity: 0.5
+                                }
+                            };
+                            if (block[star].children) {
+                                style = {
+                                    opacity: 1,
+                                    color: style.color
+                                };
+                                block[star].children.forEach(function (book) {
+                                    book.value = 1;
+                                    book.itemStyle = style;
+                                    book.label = {
+                                        color: style.color
+                                    };
+                                    let value = 1;
+                                    if (bookScoreId === 0 || bookScoreId === 3) {
+                                        value = 5;
+                                    }
+                                    if (bookScore[bookScoreId]) {
+                                        bookScore[bookScoreId].value += value;
+                                    } else {
+                                        bookScore[bookScoreId] = {
+                                            color: colors[bookScoreId],
+                                            value: value
+                                        };
+                                    }
+                                });
+                            }
+                        }
+                        level1[i].itemStyle = {
+                            color: data[j].itemStyle.color
+                        };
+                    }
+                }
+                option = {
+                    backgroundColor: bgColor,
+                    color: colors,
+                    series: [
+                        {
+                            type: 'sunburst',
+                            center: ['50%', '48%'],
+                            data: data,
+                            sort: function (a, b) {
+                                if (a.depth === 1) {
+                                    return b.getValue() - a.getValue();
+                                } else {
+                                    return a.dataIndex - b.dataIndex;
+                                }
+                            },
+                            label: {
+                                rotate: 'radial',
+                                color: bgColor
+                            },
+                            itemStyle: {
+                                borderColor: bgColor,
+                                borderWidth: 2
+                            },
+                            levels: [
+                                {},
+                                {
+                                    r0: 0,
+                                    r: 40,
+                                    label: {
+                                        rotate: 0
+                                    }
+                                },
+                                {
+                                    r0: 40,
+                                    r: 105
+                                },
+                                {
+                                    r0: 115,
+                                    r: 140,
+                                    itemStyle: {
+                                        shadowBlur: 2,
+                                        shadowColor: colors[2],
+                                        color: 'transparent'
+                                    },
+                                    label: {
+                                        rotate: 'tangential',
+                                        fontSize: 10,
+                                        color: colors[0]
+                                    }
+                                },
+                                {
+                                    r0: 140,
+                                    r: 145,
+                                    itemStyle: {
+                                        shadowBlur: 80,
+                                        shadowColor: colors[0]
+                                    },
+                                    label: {
+                                        position: 'outside',
+                                        textShadowBlur: 5,
+                                        textShadowColor: '#333'
+                                    },
+                                    downplay: {
+                                        label: {
+                                            opacity: 0.5
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                };
+
+                if (option && typeof option === 'object') {
+                    myChart.setOption(option);
+                }
+
+                window.addEventListener('resize', myChart.resize);
+            }//旭日图
+            else if (i == 3)
+            {
+                
+                $('#container').remove();
+                $('#dad').append('<div id="container" style="height: 90%;width:50%;float:left"></div>');
+                $('#dad').append('<div id="container1" style="height: 90%;width:50%;float:left"></div>');
+                
+                document.getElementById("container").addEventListener('DOMMouseScroll', mousewheel, false);//firefox
+                document.getElementById("container").onmousewheel = mousewheel;//chrome
+                document.getElementById("container1").addEventListener('DOMMouseScroll', mousewheel, false);//firefox
+                document.getElementById("container1").onmousewheel = mousewheel;//chrome
+                $('#dad').append('<input id="change_style" value="返回">');
+                $('#change_style').click(function () {
+                    index = 2;
+                    display_page(index);
+                })
+                var ATTWN_dom = document.getElementById('container1');//dom
+                var ATTWN_myChart = echarts.init(ATTWN_dom, null, {//mychart
+                    renderer: 'canvas',
+                    useDirtyRect: false
+                });
+
+                var ATTWN_option;//option
+
+
+                mylink = [];
+                d3.json("./2D-RelationshipGraph/data/WRSH.json", function (ATTWN_data) {//data
+                    // console.log(data);
+                    for (var i = 0; i < ATTWN_data.length; i++) {
+                        if (ATTWN_data[i].source == "沃格雷夫" || ATTWN_data[i].target == "沃格雷夫") {
+                            mylink.push({
+                                source: ATTWN_data[i].source,
+                                target: ATTWN_data[i].target,
+                                lineStyle: {
+                                    color: "#661111",
+                                    width: Math.sqrt(ATTWN_data[i].width) * 3,
+                                    curveness: 0
+                                },
+                                label: {
+                                    normal: {
+                                        fontSize: 40,
+                                        fontWeight: 700,
+                                        formatter: ATTWN_data[i].width.toString(10)
+                                    }
+                                }
+                            });
+                        } else {
+                            mylink.push({
+                                source: ATTWN_data[i].source,
+                                target: ATTWN_data[i].target,
+                                lineStyle: {
+                                    width: Math.sqrt(ATTWN_data[i].width) * 2,
+                                },
+                                label: {
+                                    normal: {
+                                        fontSize: 40,
+                                        fontWeight: 700,
+                                        formatter: ATTWN_data[i].width.toString(10)
+                                    }
+                                }
+                            });
+                        }
+                    }
+
+                    ATTWN_option = {
+                        title: {
+                            text: 'And Then There Were None Relation',
+                            top: 10,
+                            left: "center",
+                            textStyle: {
+                                fontSize: 50,
+                            }
+                        },
+                        tooltip: {},
+                        animationDurationUpdate: 1500,
+                        animationEasingUpdate: 'quinticInOut',
+                        series: [{
+                            type: 'graph',
+                            layout: 'none',
+                            symbolSize: 50,
+                            roam: true,
+                            label: {
+                                fontSize: 36,
+                                fontWeight: 700,
+                                show: true
+                            },
+                            edgeLabel: {
+                                normal: {
+                                    color: '#AA0012',//线上的字体颜色
+                                }
+                            },
+                            data: [
+                                {
+                                    name: "沃格雷夫",
+                                    symbolSize: 117,
+                                    value: 117,
+                                    x: 200,
+                                    y: 190,
+                                    itemStyle: {
+                                        color: "#550000"
+                                    }
+                                },
+                                {
+                                    name: "克莱索恩",
+                                    symbolSize: 71,
+                                    value: 71,
+                                    x: 133,
+                                    y: 340
+                                },
+                                {
+                                    name: '隆巴德',
+                                    symbolSize: 312 - 100,
+                                    value: 312,
+                                    x: 200,
+                                    y: 0
+                                },
+                                {
+                                    name: '布伦特',
+                                    symbolSize: 138,
+                                    value: 138,
+                                    x: 266,
+                                    y: 340
+                                },
+                                {
+                                    name: '麦克阿瑟',
+                                    symbolSize: 57,
+                                    value: 57,
+                                    x: 46,
+                                    y: 214
+                                },
+                                {
+                                    name: '阿姆斯特朗',
+                                    symbolSize: 246 - 100,
+                                    value: 246,
+                                    x: 0,
+                                    y: 320
+                                },
+                                {
+                                    name: '马斯顿',
+                                    symbolSize: 63,
+                                    value: 63,
+                                    x: 113,
+                                    y: 107
+                                },
+                                {
+                                    name: '布洛尔',
+                                    symbolSize: 286 - 100,
+                                    value: 286,
+                                    x: 400,
+                                    y: 320
+                                },
+                                {
+                                    name: '罗杰斯',
+                                    symbolSize: 135,
+                                    value: 135,
+                                    x: 286,
+                                    y: 107
+                                },
+                                {
+                                    name: '罗杰斯太太',
+                                    symbolSize: 48,
+                                    value: 48,
+                                    x: 353,
+                                    y: 214
+                                },
+                            ],
+                            links: mylink,
+                            lineStyle: {
+                                opacity: 0.9,
+                                width: 2,
+                                curveness: 0.1
+                            },
+                            emphasis: {
+                                focus: 'adjacency',
+                                lineStyle: {
+                                    color: "#FF0000",
+                                    width: 10
+                                },
+                                edgeLabel: {
+                                    show: true
+                                }
+                            }
+                        }]
+                    };
+                    //console.log(ATTWN_option.series[0].links);
+
+                    if (ATTWN_option && typeof ATTWN_option === 'object') {
+                        ATTWN_myChart.setOption(ATTWN_option);
+                    }
+                });
+
+
+                var dom = document.getElementById('container');
+                var myChart = echarts.init(dom, null, {
+                    renderer: 'canvas',
+                    useDirtyRect: false
+                });
+
+                var option;
+
+                mylink = [];
+                d3.json("./2D-RelationshipGraph/data/NLHSDCA.json", function (dataa) {
+                    // console.log(data);
+                    for (var i = 0; i < dataa.length; i++) {
+                        if (dataa[i].source == "波洛" || dataa[i].target == "波洛") {
+                            mylink.push({
+                                source: dataa[i].source,
+                                target: dataa[i].target,
+                                lineStyle: {
+                                    color: "#446644",
+                                    width: Math.sqrt(dataa[i].width) * 1.6,
+                                    curveness: 0.2
+                                },
+                                label: {
+                                    normal: {
+                                        fontSize: 40,
+                                        fontWeight: 700,
+                                        formatter: dataa[i].width.toString(10)
+                                    }
+                                }
+                            });
+                        } else if ((dataa[i].source == "西蒙" && dataa[i].target == "琳内特") ||
+                            (dataa[i].source == "西蒙" && dataa[i].target == "杰奎琳") ||
+                            (dataa[i].source == "琳内特" && dataa[i].target == "杰奎琳")) {
+                            mylink.push({
+                                source: dataa[i].source,
+                                target: dataa[i].target,
+                                lineStyle: {
+                                    color: "#550000",
+                                    width: Math.sqrt(dataa[i].width) * 1.6,
+                                    curveness: 0.2
+                                },
+                                label: {
+                                    normal: {
+                                        fontSize: 40,
+                                        fontWeight: 700,
+                                        formatter: dataa[i].width.toString(10)
+                                    }
+                                }
+                            });
+                        } else {
+                            mylink.push({
+                                source: dataa[i].source,
+                                target: dataa[i].target,
+                                lineStyle: {
+                                    width: Math.sqrt(dataa[i].width) * 2,
+                                },
+                                label: {
+                                    normal: {
+                                        fontSize: 40,
+                                        fontWeight: 700,
+                                        formatter: dataa[i].width.toString(10)
+                                    }
+                                }
+                            });
+                        }
+                    }
+
+                    option = {
+                        title: {
+                            text: 'Death On The Nile Relation',
+                            top: 10,
+                            left: "center",
+                            textStyle: {
+                                fontSize: 50,
+                            }
+                        },
+                        tooltip: {},
+                        animationDurationUpdate: 1500,
+                        animationEasingUpdate: 'quinticInOut',
+                        series: [{
+                            type: 'graph',
+                            layout: 'none',
+                            symbolSize: 50,
+                            roam: true,
+                            label: {
+                                fontSize: 36,
+                                fontWeight: 700,
+                                show: true
+                            },
+                            edgeLabel: {
+                                normal: {
+                                    color: '#AA0012',//线上的字体颜色
+                                }
+                            },
+                            data: [
+                                {
+                                    name: "波洛",
+                                    symbolSize: 664 / 2,
+                                    value: 664,
+                                    x: 0,
+                                    y: 400,
+                                    itemStyle: {
+                                        color: "#557755"
+                                    }
+                                },
+                                {
+                                    name: "琳内特",
+                                    symbolSize: 307 / 2,
+                                    value: 307,
+                                    x: 500,
+                                    y: 0,
+                                    itemStyle: {
+                                        color: "#550000"
+                                    }
+                                },
+                                {
+                                    name: '西蒙',
+                                    symbolSize: 278 / 2,
+                                    value: 278,
+                                    x: 200,
+                                    y: 1000,
+                                    itemStyle: {
+                                        color: "#550000"
+                                    }
+                                },
+                                {
+                                    name: '雷斯',
+                                    symbolSize: 262 / 2,
+                                    value: 262,
+                                    x: 1000,
+                                    y: 400
+                                },
+                                {
+                                    name: '杰奎琳',
+                                    symbolSize: 183 / 2,
+                                    value: 183,
+                                    x: 800,
+                                    y: 1000,
+                                    itemStyle: {
+                                        color: "#550000"
+                                    }
+                                },
+                                {
+                                    name: '蒂姆',
+                                    symbolSize: 156 / 2,
+                                    value: 156,
+                                    x: 400,
+                                    y: 1050
+                                },
+                                {
+                                    name: '潘宁顿',
+                                    symbolSize: 141 / 2,
+                                    value: 141,
+                                    x: 600,
+                                    y: 1050
+                                },
+                                {
+                                    name: '科妮丽亚',
+                                    symbolSize: 137 / 2,
+                                    value: 137,
+                                    x: 873,
+                                    y: 800
+                                },
+                                {
+                                    name: '罗莎莉',
+                                    symbolSize: 118 / 2,
+                                    value: 113,
+                                    x: 970,
+                                    y: 600
+                                },
+                                {
+                                    name: '范索普',
+                                    symbolSize: 113 / 2,
+                                    value: 113,
+                                    x: 100,
+                                    y: 800
+                                },
+                                {
+                                    name: '贝斯纳',
+                                    symbolSize: 108 / 2,
+                                    value: 108,
+                                    x: 30,
+                                    y: 660
+                                },
+                                {
+                                    name: '范斯凯勒',
+                                    symbolSize: 95 / 2,
+                                    value: 95,
+                                    x: 130,
+                                    y: 200
+                                },
+                                {
+                                    name: '鲍尔斯',
+                                    symbolSize: 78 / 2,
+                                    value: 78,
+                                    x: 300,
+                                    y: 60
+                                },
+                                {
+                                    name: '乔安娜',
+                                    symbolSize: 59 / 2,
+                                    value: 59,
+                                    x: 880,
+                                    y: 200
+                                },
+                                {
+                                    name: '波尔热',
+                                    symbolSize: 44 / 2,
+                                    value: 44,
+                                    x: 680,
+                                    y: 60
+                                },
+                            ],
+                            links: mylink,
+                            lineStyle: {
+                                opacity: 0.9,
+                                width: 2,
+                                curveness: 0.1
+                            },
+                            emphasis: {
+                                focus: 'adjacency',
+                                lineStyle: {
+                                    color: "#FF0000",
+                                    width: 10
+                                },
+                                edgeLabel: {
+                                    show: true
+                                }
+                            }
+                        }]
+                    };
+                    //console.log(option.series[0].links);
+
+                    if (option && typeof option === 'object') {
+                        myChart.setOption(option);
+                    }
+
+                });
+
+                window.addEventListener('resize', myChart.resize);
+
+
+
+                window.addEventListener('resize', ATTWN_myChart.resize);
+            }//两张2D
+            else if (i == 4) {//3D图 未化简版
+                //$('#container').remove();
+                $('#dad').append('<input id="change_style" value="整理">');
+                $('#change_style').click(function () {
+                    index = 5;
+                    display_page(index);
+                })
+                const Graph = ForceGraph3D()
+                    (document.getElementById('container'))
+                    .jsonUrl('./3D-RelationshipGraph/data/Data.json')
+                    .nodeAutoColorBy('group')
+                    .nodeThreeObject(node => {
+                        const sprite = new SpriteText(node.id);
+                        sprite.material.depthWrite = false; // make sprite background transparent
+                        sprite.color = node.color;
+                        sprite.textHeight = 8;
+                        return sprite;
+                    })
+                    .onNodeClick(node => {
+                        // Aim at node from outside it
+                        const distance = 40;
+                        const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+
+                        const newPos = node.x || node.y || node.z
+                            ? { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }
+                            : { x: 0, y: 0, z: distance }; // special case if node is in (0,0,0)
+
+                        Graph.cameraPosition(
+                            newPos, // new position
+                            node, // lookAt ({ x, y, z })
+                            1000  // ms transition duration
+                        );
+                    })
+                    ;
+
+                // Spread nodes a little wider
+                Graph.d3Force('charge').strength(-120);
+                //$('#dad').append('<div id="container"></div>');
+            }//3D 未化简
+            else if (i == 5) {//3D图化简版
+                
+                $('#dad').append('<input id="change_style" value="返回">');
+                $('#change_style').click(function () {
+                    index = 2;
+                    display_page(index);
+                })
+                const Graph = ForceGraph3D()
+                    (document.getElementById('container'))
+                    .jsonUrl('./3D-RelationshipGraph/data/processedData.json')
+                    .nodeAutoColorBy('group')
+                    .nodeThreeObject(node => {
+                        const sprite = new SpriteText(node.id);
+                        sprite.material.depthWrite = false; // make sprite background transparent
+                        sprite.color = node.color;
+                        sprite.textHeight = 8;
+                        return sprite;
+                    })
+                    .onNodeClick(node => {
+                        // Aim at node from outside it
+                        const distance = 300;
+                        const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+
+                        const newPos = node.x || node.y || node.z
+                            ? { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }
+                            : { x: 0, y: 0, z: distance }; // special case if node is in (0,0,0)
+
+                        Graph.cameraPosition(
+                            newPos, // new position
+                            node, // lookAt ({ x, y, z })
+                            1000  // ms transition duration
+                        );
+                    })
+                    ;
+
+                // Spread nodes a little wider
+                Graph.d3Force('charge').strength(-120);
+            }//3D 已化简
+            else if (i == 6) {//百度指数对比图  两张放一起
+                $('#container').remove();
+                $('#dad').append('<div id="container" style="height: 40%;width:100%"></div>');
+                $('#dad').append('<div id="container1" style="height: 40%;width:100%"></div>');
+                document.getElementById("container").addEventListener('DOMMouseScroll', mousewheel, false);//firefox
+                document.getElementById("container").onmousewheel = mousewheel;//chrome
+                document.getElementById("container1").addEventListener('DOMMouseScroll', mousewheel, false);//firefox
+                document.getElementById("container1").onmousewheel = mousewheel;//chrome
+                $('#dad').append('<input id="change_style" value="返回">');
+                $('#change_style').click(function () {
+                    index = 2;
+                    display_page(index);
+                })
+                var dom = document.getElementById('container');
+                var myChart = echarts.init(dom, null, {
+                    renderer: 'canvas',
+                    useDirtyRect: false
+                });
+                var app = {};
+
+                var option;
+
+                dataj = [0, 0, 0, 0, 0, 0, 0, 273, 2457, 2083, 1929, 1634, 1670, 1502, 1059, 1333, 906, 758, 1415, 882, 504, 127, 509, 124, 61, 61, 248, 370, 0, 126, 244, 60, 120, 187, 252, 61, 0, 0, 183, 308, 311, 122, 432, 295, 127, 0, 0, 0, 0, 63, 0, 63, 0, 122, 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 61, 307, 1589, 2244, 5022, 7032, 8243, 9980, 9671, 8812, 11564, 15650, 17261, 16801, 17941, 19190, 20669, 30929, 36885, 38056, 40157, 43203, 40784, 47354, 71405, 65853, 52983, 54591, 65405, 85071, 103503, 102036, 110202, 92941, 101772, 146747, 287937, 109611, 108170, 141794, 131821, 178209, 249421, 251779, 235550, 195112, 222999, 243434, 323227, 451561, 316982, 375172, 418531, 428615, 457161, 404207, 572349, 274060]
+                datam = [27810, 27820, 28313, 29755, 30762, 30957, 31194, 31970, 31777, 32467, 33353, 33838, 32901, 32661, 32917, 34738, 36438, 39692, 40848, 39088, 36404, 39085, 40974, 39205, 38350, 39593, 39157, 42877, 41028, 40903, 39905, 41548, 40975, 44170, 41966, 40853, 41894, 46734, 45332, 46414, 48053, 47231, 47879, 49016, 48594, 50888, 49790, 51315, 53011, 52604, 54800, 51963, 51414, 53573, 56494, 56920, 58202, 53462, 53583, 54229, 54279, 55429, 48699, 51080, 50216, 51693, 52312, 53761, 53103, 50425, 50902, 48388, 48957, 50123, 50092, 48291, 50871, 52928, 55163, 54841, 55412, 54153, 55138, 51573, 49929, 49940, 54675, 52096, 52463, 54287, 55165, 49575, 51408, 37636, 32896, 33725, 34634, 38674, 42135, 45913, 50646, 51451, 53238, 49875, 48900, 46218, 46379, 41575, 43318, 54073, 73945, 66889, 51767, 47495, 46162, 48905, 49603, 44997, 41044, 36537, 37599, 37163, 38802, 42702, 35110, 35714, 34166, 36189, 36747, 35615, 31135, 32668]
+                datan = [29509, 30800, 37338, 35567, 41190, 37433, 42227, 46606, 46466, 47147, 50262, 47757, 45026, 45304, 48216, 51717, 51501, 51007, 50406, 52800, 49542, 48634, 48486, 47150, 44733, 46542, 48682, 50979, 50677, 54625, 53376, 56187, 55876, 53510, 52897, 51618, 53756, 60761, 66615, 68054, 75049, 79115, 72269, 73356, 71385, 72791, 72864, 71935, 69657, 67980, 64128, 65172, 64248, 69492, 72917, 73536, 66936, 59617, 63301, 65224, 56129, 55102, 41667, 48877, 50547, 55402, 50472, 49235, 47715, 41758, 40586, 39404, 37993, 36300, 36825, 39184, 38161, 38498, 39435, 39219, 39717, 41074, 37808, 36148, 34340, 34036, 34136, 35004, 34556, 34651, 34020, 32700, 34823, 28884, 31128, 33052, 32957, 34811, 34471, 34456, 34491, 34956, 35921, 35807, 36645, 34755, 34288, 35058, 35756, 33475, 33747, 36679, 35392, 32575, 32276, 33859, 33474, 31006, 31930, 30947, 31293, 30894, 31260, 30800, 31996, 31100, 29999, 28128, 25636, 25783, 26012, 26471]
+                dates = []
+                cnt = 0
+
+                for (var year = 2011; year <= 2021; year++) {
+                    for (var month = 1; month <= 12; month++) {
+                        dates[cnt] = String(year) + '-' + String(month);
+                        cnt++;
+                    }
+                }
+                const colors = ['#880088', '#8888ff', '#ff8888'];
+                option = {
+                    color: colors,
+                    tooltip: {
+                        trigger: 'none',
+                        axisPointer: {
+                            type: 'cross'
+                        }
+                    },
+                    legend: {},
+                    grid: {
+                        top: 70,
+                        bottom: 50
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            axisTick: {
+                                alignWithLabel: true
+                            },
+                            axisLine: {
+                                onZero: false,
+                                lineStyle: {
+                                    color: colors[1]
+                                }
+                            },
+                            axisPointer: {
+                                label: {
+                                    formatter: function (params) {
+                                        return (
+                                            'Precipitation  ' +
+                                            params.value +
+                                            (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                                        );
+                                    }
+                                }
+                            },
+                            // prettier-ignore
+                            data: dates
+                        },
+                        {
+                            type: 'category',
+                            axisTick: {
+                                alignWithLabel: true
+                            },
+                            axisLine: {
+                                onZero: false,
+                                lineStyle: {
+                                    color: colors[2]
+                                }
+                            },
+                            axisPointer: {
+                                label: {
+                                    formatter: function (params) {
+                                        return (
+                                            'Precipitation  ' +
+                                            params.value +
+                                            (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                                        );
+                                    }
+                                }
+                            },
+                            // prettier-ignore
+                            data: dates
+                        },
+                        {
+                            type: 'category',
+                            axisTick: {
+                                alignWithLabel: true
+                            },
+                            axisLine: {
+                                onZero: false,
+                                lineStyle: {
+                                    color: colors[0]
+                                }
+                            },
+                            axisPointer: {
+                                label: {
+                                    formatter: function (params) {
+                                        return (
+                                            'Precipitation  ' +
+                                            params.value +
+                                            (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                                        );
+                                    }
+                                }
+                            },
+                            // prettier-ignore
+                            data: dates
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '悬疑电影',
+                            type: 'line',
+                            xAxisIndex: 1,
+                            smooth: true,
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: datam
+                        },
+                        {
+                            name: '悬疑小说',
+                            type: 'line',
+                            xAxisIndex: 2,
+                            smooth: true,
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: datan
+                        },
+                        {
+                            name: '剧本杀',
+                            type: 'line',
+                            smooth: true,
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: dataj
+                        }
+                    ]
+                };
+
+
+                if (option && typeof option === 'object') {
+                    myChart.setOption(option);
+                }
+
+                window.addEventListener('resize', myChart.resize);
+
+                var dom_2 = document.getElementById('container1');
+                var myChart_2 = echarts.init(dom_2, null, {
+                    renderer: 'canvas',
+                    useDirtyRect: false
+                });
+
+
+                var option_2;
+
+                dataf = [53481, 61007, 57255, 64064, 72072, 78303, 84452, 87039, 72164, 82931, 90077, 103846, 261158, 259503, 145495, 134636, 137649, 126878, 128281, 124359, 119673, 112783, 154411, 126513, 115690, 139555, 128004, 125041, 129777, 124745, 111891, 116232, 104272, 106104, 103298, 108618, 195000, 184040, 134035, 113713, 99228, 100847, 98511, 102428, 104440, 99621, 115215, 102935, 122286, 107500, 117739, 121294, 109790, 112840, 104083, 125329, 119208, 104265, 149109, 115370, 117826, 237275, 122958, 100924, 101978, 95921, 90476, 89797, 101336, 76578, 81318, 93500, 88672, 159855, 99224, 82522, 74136, 73426, 76381, 77464, 80017, 72810, 72777, 80192, 77599, 74737, 81333, 87335, 86273, 89745, 83879, 69218, 72392, 56319, 62498, 64373, 66363, 70697, 78825, 82538, 85401, 89451, 79464, 80855, 77370, 72837, 67679, 73703, 71300, 74874, 87189, 102806, 89924, 80880, 74326, 69716, 75336, 71456, 66935, 67256, 77568, 67679, 71782, 82948, 67101, 67369, 64472, 64138, 69500, 73984, 62141, 67909]
+                datas = [22706, 28474, 29106, 29459, 30573, 38874, 32863, 34723, 31954, 35117, 36899, 42177, 318181, 364545, 299605, 251853, 239168, 256133, 295288, 243110, 244626, 218539, 210003, 184855, 182971, 268028, 234396, 227237, 228750, 279831, 304393, 329026, 273903, 295345, 292136, 376629, 1620273, 1640464, 714082, 466985, 354287, 310432, 378716, 430133, 386771, 294384, 296548, 264830, 279552, 307269, 426624, 271691, 246685, 244581, 267332, 393879, 333071, 333563, 544602, 366464, 663189, 2143523, 548280, 289344, 267316, 211146, 222622, 249139, 315766, 164932, 196837, 260087, 237798, 1580967, 450206, 234106, 151019, 132963, 146025, 159033, 159072, 119824, 113101, 106484, 110518, 108523, 132919, 132697, 156121, 160057, 160626, 133363, 155297, 77693, 83725, 87404, 88133, 107011, 103828, 78344, 81522, 117319, 112137, 93832, 97630, 79226, 80826, 74499, 75013, 79929, 108530, 129295, 99157, 79890, 73175, 68209, 80814, 71588, 64569, 96474, 145526, 60528, 79774, 88432, 61494, 61135, 57101, 61649, 71324, 78757, 60884, 58964]
+                dates_2 = []
+                cnt_2 = 0
+
+                for (var year = 2011; year <= 2021; year++) {
+                    for (var month = 1; month <= 12; month++) {
+                        dates_2[cnt_2] = String(year) + '-' + String(month);
+                        cnt_2++;
+                    }
+                }
+                const colors_2 = ['#f41026', '#3E0326'];
+                option_2 = {
+                    color: colors_2,
+                    tooltip: {
+                        trigger: 'none',
+                        axisPointer: {
+                            type: 'cross'
+                        }
+                    },
+                    legend: {},
+                    grid: {
+                        top: 70,
+                        bottom: 50
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            axisTick: {
+                                alignWithLabel: true
+                            },
+                            axisLine: {
+                                onZero: false,
+                                lineStyle: {
+                                    color: colors_2[1]
+                                }
+                            },
+                            axisPointer: {
+                                label: {
+                                    formatter: function (params) {
+                                        return (
+                                            'Precipitation  ' +
+                                            params.value +
+                                            (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                                        );
+                                    }
+                                }
+                            },
+                            // prettier-ignore
+                            data: dates_2
+                        },
+                        {
+                            type: 'category',
+                            axisTick: {
+                                alignWithLabel: true
+                            },
+                            axisLine: {
+                                onZero: false,
+                                lineStyle: {
+                                    color: colors_2[0]
+                                }
+                            },
+                            axisPointer: {
+                                label: {
+                                    formatter: function (params) {
+                                        return (
+                                            'Precipitation  ' +
+                                            params.value +
+                                            (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                                        );
+                                    }
+                                }
+                            },
+                            // prettier-ignore
+                            data: dates_2
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '福尔摩斯',
+                            type: 'line',
+                            xAxisIndex: 1,
+                            smooth: true,
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: dataf
+                        },
+                        {
+                            name: '神探夏洛克',
+                            type: 'line',
+                            smooth: true,
+                            emphasis: {
+                                focus: 'series'
+                            },
+                            data: datas
+                        }
+                    ]
+                };
+
+                if (option_2 && typeof option_2 === 'object') {
+                    myChart_2.setOption(option_2);
+                }
+
+                window.addEventListener('resize', myChart_2.resize);
+            }//两张指数
+            else if (i == 7) {
+                $('#container').remove();
+                $('#dad').append('<div id="container" style="width: 100%; height: 90%; margin: 0;"></div>');
+                document.getElementById("container").addEventListener('DOMMouseScroll', mousewheel, false);//firefox
+                document.getElementById("container").onmousewheel = mousewheel;//chrome
+                $('#dad').append('<input type="button" id="change_style" value="切换样式">');
+                $('#dad').append('<input type="button" id="go_back" value="返回">');
+                var chart = echarts.init(document.getElementById("container"));
+                var optseq = 0;
+                $('#go_back').click(function () {
+                    index = 2;
+                    display_page(index);
+                })
+                $('#change_style').click(function () {
+
+                    optseq += 1;
+                    var opt;
+                    if (optseq % 3 == 0) {
+                        opt = DM_option;
+                    } else if (optseq % 3 == 1) {
+                        opt = TDC_option;
+                    } else {
+                        opt = Coc_option;
+                    }
+                    console.log("opt=", opt);
+                    chart.setOption(opt, true);
+                })
+                {
+                    var Coc_data = [];
+                    var COC_length;
+                    // d3.json("Count.json", function (list) {
+                    d3.json("./WordCloud/data/CallOfCathulhu.json", function (list) {
+                        console.log(list.RECORDS);
+                        COC_length = list.RECORDS.length;
+                        for (var i = 0; i < COC_length; i += 1) {
+                            Coc_data.push({
+                                name: list.RECORDS[i].name,
+                                value: Math.sqrt(Math.sqrt(list.RECORDS[i].cnt)),
+                                // value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                                // textStyle: {color: 'red'},
+                            })
+                        }
+                    });
+                    console.log(Coc_data);
+
+                    var COC_maskImage = new Image();
+
+                    var Coc_option = {
+                        title: {
+                            text: 'Call Of Cathulhu',
+                            top:10,
+                            left: "center",
+                            textStyle:{
+                                fontSize: 50,
+                            }
+                        },
+                        series: [{
+                            type: 'wordCloud',
+                            sizeRange: [4, 150],
+                            rotationRange: [0, 20],
+                            gridSize: 0,
+                            shape: 'pentagon',
+                            maskImage: COC_maskImage,
+                            drawOutOfBound: false,
+                            layoutAnimation: true,
+                            keepAspect: true,
+                            textStyle: {
+                                fontWeight: 'bold',
+                                color: function () {
+                                    return 'rgb(' + [
+                                        Math.round(Math.random() * 100) + 30,
+                                        Math.round(Math.random() * 80),
+                                        Math.round(Math.random() * 200) + 50
+                                    ].join(',') + ')';
+                                }
+                            },
+                            emphasis: {
+                                textStyle: {
+                                    color: '#528'
+                                }
+                            },
+                            data: Coc_data.sort(function (a, b) {
+                                return b.value - a.value;
+                            })
+                        }]
+                    };
+
+                    COC_maskImage.onload = function () {
+                        Coc_option.series[0].maskImage
+                        chart.setOption(Coc_option);
+                    }
+                    COC_maskImage.src = './WordCloud/pics/COC.png';
+                }
+
+                {
+                    var TDC_data = [];
+                    var TDC_length;
+                    // d3.json("Count.json", function (list) {
+                    d3.json("./WordCloud/data/TheDaVinciCodeWithoutCharacterName.json", function (list) {
+                        console.log(list.RECORDS);
+                        TDC_length = list.RECORDS.length;
+                        for (var i = 0; i < TDC_length; i += 1) {
+                            TDC_data.push({
+                                name: list.RECORDS[i].name,
+                                value: Math.sqrt(list.RECORDS[i].cnt / 4),
+                                // value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                                // textStyle: {color: 'red'},
+                            })
+                        }
+                    });
+                    console.log(TDC_data);
+
+                    var TDC_maskImage = new Image();
+
+                    var TDC_option = {
+                        title: {
+                            text: 'The DaVinci Code',
+                            top:10,
+                            left: "center",
+                            textStyle:{
+                                fontSize: 50,
+                            }
+                        },
+                        series: [{
+                            type: 'wordCloud',
+                            sizeRange: [4, 150],
+                            rotationRange: [0, 30],
+                            gridSize: 0,
+                            shape: 'pentagon',
+                            maskImage: TDC_maskImage,
+                            drawOutOfBound: false,
+                            layoutAnimation: true,
+                            keepAspect: true,
+                            textStyle: {
+                                fontWeight: 'bold',
+                                color: function () {
+                                    return 'rgb(' + [
+                                        Math.round(Math.random() * 200) + 50,
+                                        Math.round(Math.random() * 150) + 40,
+                                        Math.round(Math.random() * 50)
+                                    ].join(',') + ')';
+                                }
+                            },
+                            emphasis: {
+                                textStyle: {
+                                    color: '#528'
+                                }
+                            },
+                            data: TDC_data.sort(function (a, b) {
+                                return b.value - a.value;
+                            })
+                        }]
+                    };
+
+                    TDC_maskImage.onload = function () {
+                        TDC_option.series[0].maskImage
+                    }
+
+                    TDC_maskImage.src = './WordCloud/pics/MonaLisa.png';
+                }
+
+                {
+                    var DM_data = [];
+                    var DM_length;
+                    // d3.json("Count.json", function (list) {
+                    d3.json("./WordCloud/data/DoguraMogura.json", function (list) {
+                        console.log(list.RECORDS);
+                        DM_length = list.RECORDS.length;
+                        for (var i = 0; i < DM_length; i += 1) {
+                            DM_data.push({
+                                name: list.RECORDS[i].name,
+                                value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                                // value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                                // textStyle: {color: 'red'},
+                            })
+                        }
+                    });
+                    console.log(DM_data);
+
+                    var DM_maskImage = new Image();
+
+                    var DM_option = {
+                        title: {
+                            text: 'Dogura Mogura',
+                            top:10,
+                            left: "center",
+                            textStyle:{
+                                fontSize: 50,
+                            }
+                        },
+                        series: [{
+                            type: 'wordCloud',
+                            sizeRange: [4, 150],
+                            rotationRange: [0, 15],
+                            gridSize: 0,
+                            shape: 'pentagon',
+                            maskImage: DM_maskImage,
+                            drawOutOfBound: false,
+                            layoutAnimation: true,
+                            keepAspect: true,
+                            textStyle: {
+                                fontWeight: 'bold',
+                                color: function () {
+                                    return 'rgb(' + [
+                                        Math.round(Math.random() * 200) + 50,
+                                        Math.round(Math.random() * 50),
+                                        Math.round(Math.random() * 50) + 50
+                                    ].join(',') + ')';
+                                }
+                            },
+                            emphasis: {
+                                textStyle: {
+                                    color: '#528'
+                                }
+                            },
+                            data: DM_data.sort(function (a, b) {
+                                return b.value - a.value;
+                            })
+                        }]
+                    };
+
+                    DM_maskImage.onload = function () {
+                        DM_option.series[0].maskImage;
+                        chart.setOption(DM_option);
+                    }
+
+                    DM_maskImage.src = './WordCloud/pics/Brain.png';
+
+                }
+
+                window.onresize = function () {
+                    chart.resize();
+                }
+        }
+
+
+
+        }
+        var index = 1;//id
+        document.getElementById("container").addEventListener('DOMMouseScroll', mousewheel, false);//firefox
+        document.getElementById("container").onmousewheel = mousewheel;//chrome
+        display_page(index);
+        //添加滚轮事件
+        function mousewheel(e) {
+            //补全滚轮事件
+            if (index ==1 ) {
+                e.preventDefault();//通知浏览器不执行默认的动作
+
+                if (e.wheelDelta) {
+                    //IE/Opera/Chrome
+                    if (e.wheelDelta < 0) {
+                        //下
+                        index++;
+                    }
+                    else {
+                        //上
+                        index--;
+                    }
+                }
+                else if (e.detail) {
+                    //Firefox
+                    if (e.detail < 0) {
+                        //上
+                        index--;
+                    }
+                    else {
+                        //下
+                        index++;
+                    }
+                }
+                if (index > 7) {
+                    index = 1;
+                }
+                if (index < 1) {
+                    index = 7;
+                }
+                display_page(index);
+                console.log('mousewheel', index);
+            }
+        }</script>
+
+
+
+</body>
+
+</html>
