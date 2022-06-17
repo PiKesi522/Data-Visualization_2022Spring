@@ -1,0 +1,412 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=sunburst-book&code=MYewdgzgLgBKA2IBOEYF4YG0DkBiAYvgIICiArAOzYA0MehFAHGQMw124lFkCMv7eAMKCW-SgNwBOIgCYy87AF0A3AChQkWACMA5oJCIk6DjJIyKLNmo3QYASygBTALYBlKAE94j4wG9VMDDQAIZIZABcMP6BgQjIkXEomAAMigEwAL7U6SFIACyR0TGJCQbIEJg8aYFZOVChLIXpsWVIpYYVMtWZ2YG5Mk0xcK3t5Zgs3RmqGdbgtgAmwfXGmOlFgWDBzo6R2ICPQYBx_jTN9k5unt6DQ8OGo0lVJ7VDwAAWdvDzSI5gkavXUSchpttrtAPxpgAKlQBxwcd_rE3h8vj8sIDrutYRstjs6GRAGBkMPRxXhn2-vxR6LRBJiwKx2EAB6aALrlAPiugA347Bk2FPSkxClc6m7QDq_oAHc0Aia6ACQs2VyYpzJTzKXy6IAeHX5gGabQBQcoAQt0AFwbi9n_aVc2UE-XYQDseoBVPQlksyupi3XR-v-hqBmN2eTxvS5r3exKRfytTthxsAOHKATtNANf6gDN4wDQMYABcx1Vp6NqGAf-xqIACFBLH41aHQSU9djYBmNMAkoqAaDl1YArf0AbgaWyVTSV2jke8lJmDGljuttehEk5EJgvOkF0QDlxiHAIPR9LrXLzrYTGOH2EA9aaAB5tACg6S8AIXqAW7VAOKaOfrbabevZx566JRhuNgHvzQDqyoBlBLX-P-PZ9pMpBeNuOfBNfiPf_ptkONKAPGea6AJYmS6AEXGoqAGNp06Ug2XJnkMs4wGeeZXi6dCAMPqgBLSoAM4k_s8RL_v2-ZtsabrEbCf59n6MpAVS2HYAAHuqgBNBoA5koIQSSGUihUqniimHssagCw6WugCeTjRcLemRDGwp-LHUS2v6kfRTGDsxi7VoAP06ANJygA4mrx9pHja_HXBhJyTB6aLGoAp6aADTmP4OC47heFiPIlDcYxdI8al0b6l5iSxQaAHOJgC06oAfCqyXAGnBR-lEsd-anokFAGMfO7YsYAM1rCvSAAa6qAHTOgDVcaZzZaUxC40oAvm5GYAMhGVSejYWWlqLJYuqndglmUGjVOWLoAVQaAPCGLXXGhjqDcagB8poAZtqAHAqE2oeZiEdcmXU0p2cUkfJmkDjNLGADB6gDY5gZgD9fnQTGWeigk1MJeodVhi6AFRWgD5NoAxtaAE_KcUZeRc68ilXaSv9ilJdlxqAIuJgAMroAAHIwfBN1rXxG3oSJz2hYugBQ8oAQuqAB56gBUmoAcwl_X1ANKVtrog565PgxRkMsVDgBOQYAZRaAIZyK1CW1iGPZNmPosagCIRoA1tqAAragBm1oAHHJk_tiUM0Di6pb1cv9RD87GjGgB0RgZgCjrlzD083xfOoQLgYsYAfuZOYAoHaAAT6su9vLgNysDu2EqrFPqwmxqAJ0OgBwchdBvWkb9po4EyndTTlJg9VjOLoAb2nqoAZI4-0Ht2wvdwcZxjIWCyxgDXfoA3fGNVOaMx17Rqu2H7uO2rCveyxgD5KYAFhGAGGZgC-eoArg5pyjZl3SJNnpFMKiqKoABmyAwAAFN4sAAFbGMkygwAvAA8MCLPUAB03hgDoUAvMvADUR9zwAlACgSzzA3gAG6OPAPDGJvwSYHPihb0FaiBBPRgz44sA7CL2XkA9ed8H48B3t8feh8YAnzsBfNE18tCIGAAAa2MOAx-mA7Afy_icZBIAQBoNcKAL4KwR5DEIcQ0hyBHAAEl5jfxiL_ae19cjAKCPUIw68UEgHQVAveB9j5H1yIglE7CLg-AwFPMeABXMAwAoB2HANPak4j0QQAAO4OFeGozEGjfzBAgD4bA35whti0EQkhZCGHzGAW2L4UA5FIDAKcdyUit65DIMw9KxjTHUQsZKKxNDbGMOMDwXxBInEuLcW5c4nkvHcLyFEl8_i6A7SCVyEJNi6HhIwDIVJsIYmuPcQk7wSSGhFOeOk7AMg8RZMpDk2hXx8kwBYNU64JS4lnA8hU_onT04ZDPlPPh6DMC5A_uoopYy0ETO4R_eAwQtAPz8OyHy0BEmJDRvMEAWiwAAAclkeCuOiEABzgjAAcCcmAyQt5kHZEMopdgx7T1mfM0IeCEqGP-Js7wazKTnMudcyIPBq4bM8YkR5nT3mTM_glLev8SCXJeLIhRSiVFuNGdYn5sIclb1vsEeAcjpEwEiTafF8S-mkr-Y4TpgR8VLJWfAAFnoRhcK2a0Cy9Kb4AJgIS4lpLyWUheW86xLS7HoDQBgZIMAAA-cqYDNLCfY6VGAWC4vRAKklxgfEWRtKK7FoS6GYGVXk-YihNV4vFbY01NrzUf21T4I-GAnU8oyDAB-JjL7ZPtV8O1xrWkWtZaDdliQKhmqDYoauQwnWRCdW2GY-r7RnyKZZSyWCeA4I_lSqRIbijspfm_HNvTIVctQswqYUxznKNURgIoWhLloJ0EgEACj5j6FuEqvQrQPQ-XDR6ExSA7COAgP1HkngDk0ggAorQLjoA0WAN8JwbQsBmOSAAUgEHkRgW7o0ohfpEF-HUIDICgJEeRija1YuCLQLQVrAiGuCFveYjgDkHylRgHgD6YjdKVVvHQACABqRKSVTwvgAWhgM-wDUAQOCvA4Mz18BvUBj_c-l-9CwCvtYjAKDWgX1LGCFhnDgyc7_CZQ_U5XSQD1CcLsJAwR5h2CJX9dluhO3IHI9cXNnlqNDCsUgV9SBOOro4729kgnhMAHU7DzAPpEGQ3GqGOHvihuu4c0JoeSJEZI1dV15D0zaSj8B-PFNo0sLEyRk1VWdsUnTMBDP6dBckB5od2TadBXwZzZKnMGtLXxn1lIIAvCY3s9MxLV0yBjUEULuytGibuJ0fdoau3YCgIxyAFzERQAmlNG-yyqNBeiRZ-jdB6h72XSx-Absf7gCgK4OwAAvLEPAjOpfiL5JIqQbNPQ8zaJADmeB-cpKu4bZBq68cuMVzRcXwuRciIwdrXIQthYS2G1oFQevrWM4V0zM3YQHJABABwmLdhtqgCd19tWYBOFYg1ubWiIsuMiBNtsd2HtrcSxwSwbB2o2ni4c45ZmKN7ZB7CIFVzPC6fuYm3rk0URNiQmkGYQA
+	请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    const colors = ['#FFAE57', '#FF7853', '#EA5151', '#CC3F57', '#9A2555'];
+const bgColor = '#2E2733';
+const itemStyle = {
+  star5: {
+    color: colors[0]
+  },
+  star4: {
+    color: colors[1]
+  },
+  star3: {
+    color: colors[2]
+  },
+  star2: {
+    color: colors[3]
+  }
+};
+const data = [
+  {
+    name: '英美',
+    itemStyle: {
+      color: colors[1]
+    },
+    children: [
+      {
+        name: '阿加莎',
+        children: [
+          {
+            name: '9.5',
+            children: [
+              {
+                name: '无人生还'
+              },
+              {
+                name: '罗杰疑案'
+              },
+              {
+                name: '尼罗河上的惨案'
+              },
+              {
+                name: '帷幕'
+              }
+            ]
+          },
+          {
+            name: '9.0',
+            children: [
+              {
+                name: '东方快车谋杀案'
+              },
+              {
+                name: 'ABC谋杀案'
+              },
+              {
+                name: '阳光下的罪恶'
+              }
+            ]
+          },
+          {
+            name: '8.5',
+            children: [
+              {
+                name: '控方证人'
+              },
+              {
+                name: '斯泰尔斯庄园奇案'
+              }
+            ]
+          }
+        ]
+      },        
+      {
+        name: '柯南道尔',
+        children: [
+          {
+            name: '9.5',
+            children: [
+              {
+                name: '福尔摩斯探案集'
+              }
+            ]
+          },
+        ]
+      },
+      {
+        name: '埃勒里',
+        children: [
+          {
+            name: '9.0',
+            children: [
+              {
+                name: 'x的悲剧'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: '霍尔特',
+        children: [
+          {
+            name: '9.0',
+            children: [
+              {
+                name: '恶狼之夜'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: '日本',
+    itemStyle: {
+      color: colors[2]
+    },
+    children: [
+      {
+        name: '东野圭吾',
+        children: [
+          {
+            name: '9.5',
+            children: [
+              {
+                name: '嫌疑人X的献身'
+              },
+              {
+                name: '白夜行'
+              }
+            ]
+          },
+          {
+            name: '9.0',
+            children: [
+              {
+                name: '悪意'
+              },
+              {
+                name: '放学后'
+              }
+            ]
+          },
+          {
+            name: '8.5',
+            children: [
+              {
+                name: '希望之线 '
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: '横沟正史',
+        children: [
+          {
+            name: '9.5',
+            children: [
+              {
+                name: '金田一探案集'
+              }
+            ]
+          },
+        ]
+      },
+      {
+        name: '伊坂幸太郎',
+        children: [
+          {
+            name: '9.0',
+            children: [
+              {
+                name: '金色梦乡'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: '我孫子武丸',
+        children: [
+          {
+            name: '9.5',
+            children: [
+              {
+                name: '杀戮之病'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: '松本清张',
+        children: [
+          {
+            name: '9.5',
+            children: [
+              {
+                name: '点与线'
+              }
+            ]
+          },
+          {
+            name: '9.0',
+            children: [
+              {
+                name: '零的焦点'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: '绫辻行人',
+        children: [
+          {
+            name: '9.5',
+            children: [
+              {
+                name: '钟表馆幽灵'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
+
+for (let j = 0; j < data.length; ++j) {
+  let level1 = data[j].children;
+  for (let i = 0; i < level1.length; ++i) {
+    let block = level1[i].children;
+    let bookScore = [];
+    let bookScoreId;
+    for (let star = 0; star < block.length; ++star) {
+      let style = (function (name) {
+        switch (name) {
+          case '9.5':
+            bookScoreId = 0;
+            return itemStyle.star5;
+          case '9.0':
+            bookScoreId = 1;
+            return itemStyle.star4;
+          case '8.5':
+            bookScoreId = 2;
+            return itemStyle.star3;
+          case '2☆':
+            bookScoreId = 3;
+            return itemStyle.star2;
+        }
+      })(block[star].name);
+      block[star].label = {
+        color: style.color,
+        downplay: {
+          opacity: 0.5
+        }
+      };
+      if (block[star].children) {
+        style = {
+          opacity: 1,
+          color: style.color
+        };
+        block[star].children.forEach(function (book) {
+          book.value = 1;
+          book.itemStyle = style;
+          book.label = {
+            color: style.color
+          };
+          let value = 1;
+          if (bookScoreId === 0 || bookScoreId === 3) {
+            value = 5;
+          }
+          if (bookScore[bookScoreId]) {
+            bookScore[bookScoreId].value += value;
+          } else {
+            bookScore[bookScoreId] = {
+              color: colors[bookScoreId],
+              value: value
+            };
+          }
+        });
+      }
+    }
+    level1[i].itemStyle = {
+      color: data[j].itemStyle.color
+    };
+  }
+}
+option = {
+  backgroundColor: bgColor,
+  color: colors,
+  series: [
+    {
+      type: 'sunburst',
+      center: ['50%', '48%'],
+      data: data,
+      sort: function (a, b) {
+        if (a.depth === 1) {
+          return b.getValue() - a.getValue();
+        } else {
+          return a.dataIndex - b.dataIndex;
+        }
+      },
+      label: {
+        rotate: 'radial',
+        color: bgColor
+      },
+      itemStyle: {
+        borderColor: bgColor,
+        borderWidth: 2
+      },
+      levels: [
+        {},
+        {
+          r0: 0,
+          r: 40,
+          label: {
+            rotate: 0
+          }
+        },
+        {
+          r0: 40,
+          r: 105
+        },
+        {
+          r0: 115,
+          r: 140,
+          itemStyle: {
+            shadowBlur: 2,
+            shadowColor: colors[2],
+            color: 'transparent'
+          },
+          label: {
+            rotate: 'tangential',
+            fontSize: 10,
+            color: colors[0]
+          }
+        },
+        {
+          r0: 140,
+          r: 145,
+          itemStyle: {
+            shadowBlur: 80,
+            shadowColor: colors[0]
+          },
+          label: {
+            position: 'outside',
+            textShadowBlur: 5,
+            textShadowColor: '#333'
+          },
+          downplay: {
+            label: {
+              opacity: 0.5
+            }
+          }
+        }
+      ]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
