@@ -23,14 +23,14 @@
         console.log("Do")
         var chart = echarts.init(document.getElementById('main'));
 
-        var data = [];
-        var length;
+        var TDC_data = [];
+        var TDC_length;
         // d3.json("Count.json", function (list) {
         d3.json("./data/TheDaVinciCodeWithoutCharacterName.json", function (list) {
             console.log(list.RECORDS);
-            length = list.RECORDS.length;
-            for (var i = 0; i < length; i += 1) {
-                data.push({
+            TDC_length = list.RECORDS.length;
+            for (var i = 0; i < TDC_length; i += 1) {
+                TDC_data.push({
                     name: list.RECORDS[i].name,
                     value: Math.sqrt(list.RECORDS[i].cnt / 2),
                     // value: Math.sqrt(list.RECORDS[i].cnt / 2),
@@ -38,18 +38,18 @@
                 })
             }
         });
-        console.log(data);
+        console.log(TDC_data);
 
-        var maskImage = new Image();
+        var TDC_maskImage = new Image();
 
-        var option = {
+        var TDC_option = {
             series: [{
                 type: 'wordCloud',
                 sizeRange: [4, 150],
                 rotationRange: [0, 0],
                 gridSize: 0,
                 shape: 'pentagon',
-                maskImage: maskImage,
+                maskImage: TDC_maskImage,
                 drawOutOfBound: false,
                 layoutAnimation: true,
                 keepAspect: true,
@@ -68,18 +68,18 @@
                         color: '#528'
                     }
                 },
-                data: data.sort(function (a, b) {
+                data: TDC_data.sort(function (a, b) {
                     return b.value - a.value;
                 })
             }]
         };
 
-        maskImage.onload = function () {
-            option.series[0].maskImage
-            chart.setOption(option);
+        TDC_maskImage.onload = function () {
+            TDC_option.series[0].maskImage
+            chart.setOption(TDC_option);
         }
 
-        maskImage.src = './pics/MonaLisa.png';
+        TDC_maskImage.src = './pics/MonaLisa.png';
 
         window.onresize = function () {
             chart.resize();

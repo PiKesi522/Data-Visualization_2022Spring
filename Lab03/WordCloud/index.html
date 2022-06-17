@@ -1,0 +1,241 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src='./dist/echarts.min.js'></script>
+    <script src='./dist/echarts-wordcloud.js'></script>
+    <script src='./dist/d3.v3.min.js'></script>
+    <script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body id="dad">
+    <div id= 'main'></div>  
+    <input type="button" id="change_style" value="切换样式">
+
+    <script>
+        var chart = echarts.init(document.getElementById("main"));
+        var optseq = 0;
+        $('#change_style').click(function () {
+
+            optseq += 1;
+            var opt;
+            if (optseq % 3 == 0) {
+                opt = TDC_option;
+            } else if (optseq % 3 == 1) {
+                opt = DM_option;
+            } else {
+                opt = Coc_option;
+            }
+            console.log("opt=", opt);
+            chart.setOption(opt, true);
+        })
+        
+        // var chart = echarts.init(document.getElementById('main'));
+
+
+    {
+        var Coc_data = [];
+        var COC_length;
+        // d3.json("Count.json", function (list) {
+        d3.json("./data/CallOfCathulhu.json", function (list) {
+            console.log(list.RECORDS);
+            COC_length = list.RECORDS.length;
+            for (var i = 0; i < COC_length; i += 1) {
+                Coc_data.push({
+                    name: list.RECORDS[i].name,
+                    value: Math.sqrt(Math.sqrt(list.RECORDS[i].cnt)),
+                    // value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                    // textStyle: {color: 'red'},
+                })
+            }
+        });
+        console.log(Coc_data);
+
+        var COC_maskImage = new Image();
+
+        var Coc_option = {
+            title: {
+                text: 'Call Of Cathulhu',
+                textStyle:{
+                    fontSize: 41
+                }
+            },
+            series: [{
+                type: 'wordCloud',
+                sizeRange: [4, 150],
+                rotationRange: [0,20],
+                gridSize: 0,
+                shape: 'pentagon',
+                maskImage: COC_maskImage,
+                drawOutOfBound: false,
+                layoutAnimation: true,
+                keepAspect: true,
+                textStyle: {
+                    fontWeight: 'bold',
+                    color: function () {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 100) + 30,
+                            Math.round(Math.random() * 80),
+                            Math.round(Math.random() * 200) + 50
+                        ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    textStyle: {
+                        color: '#528'
+                    }
+                },
+                data: Coc_data.sort(function (a, b) {
+                    return b.value - a.value;
+                })
+            }]
+        };
+
+        COC_maskImage.onload = function () {
+            Coc_option.series[0].maskImage
+            chart.setOption(Coc_option);
+        }
+        COC_maskImage.src = './pics/COC.png';
+    }
+
+    {
+        var DM_data = [];
+        var DM_length;
+        // d3.json("Count.json", function (list) {
+        d3.json("./data/DoguraMogura.json", function (list) {
+            console.log(list.RECORDS);
+            DM_length = list.RECORDS.length;
+            for (var i = 0; i < DM_length; i += 1) {
+                DM_data.push({
+                    name: list.RECORDS[i].name,
+                    value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                    // value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                    // textStyle: {color: 'red'},
+                })
+            }
+        });
+        console.log(DM_data);
+
+        var DM_maskImage = new Image();
+
+        var DM_option = {
+            title: {
+                text: 'Dogura Mogura',
+                textStyle:{
+                    fontSize: 41
+                }
+            },
+            series: [{
+                type: 'wordCloud',
+                sizeRange: [4, 150],
+                rotationRange: [0, 15],
+                gridSize: 0,
+                shape: 'pentagon',
+                maskImage: DM_maskImage,
+                drawOutOfBound: false,
+                layoutAnimation: true,
+                keepAspect: true,
+                textStyle: {
+                    fontWeight: 'bold',
+                    color: function () {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 200) + 50,
+                            Math.round(Math.random() * 50),
+                            Math.round(Math.random() * 50) + 50
+                        ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    textStyle: {
+                        color: '#528'
+                    }
+                },
+                data: DM_data.sort(function (a, b) {
+                    return b.value - a.value;
+                })
+            }]
+        };
+
+        DM_maskImage.onload = function () {
+            DM_option.series[0].maskImage
+        }
+
+        DM_maskImage.src = './pics/Brain.png';
+
+    }
+
+    {
+        var TDC_data = [];
+        var TDC_length;
+        // d3.json("Count.json", function (list) {
+        d3.json("./data/TheDaVinciCodeWithoutCharacterName.json", function (list) {
+            console.log(list.RECORDS);
+            TDC_length = list.RECORDS.length;
+            for (var i = 0; i < TDC_length; i += 1) {
+                TDC_data.push({
+                    name: list.RECORDS[i].name,
+                    value: Math.sqrt(list.RECORDS[i].cnt / 4),
+                    // value: Math.sqrt(list.RECORDS[i].cnt / 2),
+                    // textStyle: {color: 'red'},
+                })
+            }
+        });
+        console.log(TDC_data);
+
+        var TDC_maskImage = new Image();
+
+        var TDC_option = {
+            title: {
+                text: 'The DaVinci Code',
+                textStyle:{
+                    fontSize: 41
+                }
+            },
+            series: [{
+                type: 'wordCloud',
+                sizeRange: [4, 150],
+                rotationRange: [0,30],
+                gridSize: 0,
+                shape: 'pentagon',
+                maskImage: TDC_maskImage,
+                drawOutOfBound: false,
+                layoutAnimation: true,
+                keepAspect: true,
+                textStyle: {
+                    fontWeight: 'bold',
+                    color: function () {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 200) + 50,
+                            Math.round(Math.random() * 150) + 40,
+                            Math.round(Math.random() * 50)
+                        ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    textStyle: {
+                        color: '#528'
+                    }
+                },
+                data: TDC_data.sort(function (a, b) {
+                    return b.value - a.value;
+                })
+            }]
+        };
+
+        TDC_maskImage.onload = function () {
+            TDC_option.series[0].maskImage
+            chart.setOption(TDC_option);
+        }
+
+        TDC_maskImage.src = './pics/MonaLisa.png';
+    }
+
+        window.onresize = function () {
+            chart.resize();
+        }
+
+    </script>
+</body>
+
+</html>

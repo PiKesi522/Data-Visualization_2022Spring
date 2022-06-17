@@ -23,14 +23,14 @@
         console.log("Do")
         var chart = echarts.init(document.getElementById('main'));
 
-        var data = [];
+        var Coc_data = [];
         var length;
         // d3.json("Count.json", function (list) {
         d3.json("./data/CallOfCathulhu.json", function (list) {
             console.log(list.RECORDS);
             length = list.RECORDS.length;
             for (var i = 0; i < length; i += 1) {
-                data.push({
+                Coc_data.push({
                     name: list.RECORDS[i].name,
                     value: Math.sqrt(Math.sqrt(list.RECORDS[i].cnt)),
                     // value: Math.sqrt(list.RECORDS[i].cnt / 2),
@@ -38,18 +38,18 @@
                 })
             }
         });
-        console.log(data);
+        console.log(Coc_data);
 
-        var maskImage = new Image();
+        var COC_maskImage = new Image();
 
-        var option = {
+        var Coc_option = {
             series: [{
                 type: 'wordCloud',
                 sizeRange: [4, 150],
                 rotationRange: [0, 0],
                 gridSize: 0,
                 shape: 'pentagon',
-                maskImage: maskImage,
+                maskImage: COC_maskImage,
                 drawOutOfBound: false,
                 layoutAnimation: true,
                 keepAspect: true,
@@ -57,9 +57,9 @@
                     fontWeight: 'bold',
                     color: function () {
                         return 'rgb(' + [
-                            Math.round(Math.random() * 200) + 50,
-                            Math.round(Math.random() * 50),
-                            Math.round(Math.random() * 50) + 50
+                            Math.round(Math.random() * 100) + 30,
+                            Math.round(Math.random() * 80),
+                            Math.round(Math.random() * 200) + 50
                         ].join(',') + ')';
                     }
                 },
@@ -68,18 +68,18 @@
                         color: '#528'
                     }
                 },
-                data: data.sort(function (a, b) {
+                data: Coc_data.sort(function (a, b) {
                     return b.value - a.value;
                 })
             }]
         };
 
-        maskImage.onload = function () {
-            option.series[0].maskImage
-            chart.setOption(option);
+        COC_maskImage.onload = function () {
+            Coc_option.series[0].maskImage
+            chart.setOption(Coc_option);
         }
 
-        maskImage.src = './pics/logo.png';
+        COC_maskImage.src = './pics/COC.png';
 
         window.onresize = function () {
             chart.resize();
