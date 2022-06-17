@@ -1,0 +1,458 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=graph-simple
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #container{
+        height: 100%; 
+        width: 50%;
+        float: left;
+        /* background-color: bisque; */
+    }
+
+    #container1{
+        height: 100%;
+        width: 50%; 
+        float: left;
+        /* background-color: aquamarine; */
+    }
+  </style>
+</head>
+
+<body style="height: 100%; width: 100%; margin: 0">
+    <div id="container"></div>
+    <div id="container1"></div>
+
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <script src="./dist/d3.v3.min.js"></script>
+
+
+
+  <script type="text/javascript">
+    var ATTWN_dom = document.getElementById('container1');//dom
+    var ATTWN_myChart = echarts.init(ATTWN_dom, null, {//mychart
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    var ATTWN_option;//option
+
+    console.log("mylink");
+    mylink = [];
+    d3.json("./data/WRSH.json", function(ATTWN_data){//data
+      // console.log(data);
+      for(var i = 0; i < ATTWN_data.length; i++){
+        if(ATTWN_data[i].source == "沃格雷夫" || ATTWN_data[i].target == "沃格雷夫"){
+          mylink.push({ 
+                      source : ATTWN_data[i].source, 
+                      target : ATTWN_data[i].target, 
+                      lineStyle: {
+                        color: "#661111",
+                        width: Math.sqrt(ATTWN_data[i].width) * 3,
+                        curveness: 0
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: ATTWN_data[i].width.toString(10)
+                        }
+                      }
+                    });
+        }else{
+          mylink.push({ 
+                      source : ATTWN_data[i].source, 
+                      target : ATTWN_data[i].target, 
+                      lineStyle: {
+                        width : Math.sqrt(ATTWN_data[i].width) * 2,
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: ATTWN_data[i].width.toString(10)
+                        }
+                      }
+                    });
+        }
+      }
+
+      ATTWN_option = {
+        title: {
+          text: 'And Then There Were None Relation',
+          top:10,
+          left: "center",
+          textStyle:{
+            fontSize: 50,
+          }
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series: [{
+          type: 'graph',
+          layout: 'none',
+          symbolSize: 50,
+          roam: true,
+          label: {
+            fontSize: 36,
+            fontWeight: 700,
+            show: true
+          },
+          edgeLabel: {
+            normal: {
+                color: '#AA0012',//线上的字体颜色
+            }
+          },
+          data: [
+            {
+              name: "沃格雷夫",
+              symbolSize: 117,
+              value: 117,
+              x: 200,
+              y: 190,
+              itemStyle:{
+                color:"#550000"
+              }
+            },
+            {
+              name: "克莱索恩",
+              symbolSize: 71,
+              value: 71,
+              x: 133,
+              y: 340
+            },
+            {
+              name: '隆巴德',
+              symbolSize : 312 - 100,
+              value : 312,
+              x: 200,
+              y: 0
+            },
+            {
+              name: '布伦特',
+              symbolSize: 138,
+              value: 138,
+              x: 266,
+              y: 340
+            },
+            {
+              name: '麦克阿瑟',
+              symbolSize: 57,
+              value: 57,
+              x: 46,
+              y: 214
+            },
+            {
+              name: '阿姆斯特朗',
+              symbolSize: 246 - 100,
+              value: 246,
+              x: 0,
+              y: 320
+            },
+            {
+              name: '马斯顿',
+              symbolSize: 63,
+              value: 63,
+              x: 113,
+              y: 107
+            },
+            {
+              name: '布洛尔',
+              symbolSize: 286 - 100,
+              value: 286,
+              x: 400,
+              y: 320
+            },
+            {
+              name: '罗杰斯',
+              symbolSize: 135,
+              value: 135,
+              x: 286,
+              y: 107
+            },
+            {
+              name: '罗杰斯太太',
+              symbolSize: 48,
+              value: 48,
+              x: 353,
+              y: 214
+            },
+          ],
+          links : mylink,
+          lineStyle: {
+            opacity: 0.9,
+            width: 2,
+            curveness: 0.1
+          },
+          emphasis: {
+            focus: 'adjacency',
+            lineStyle: {
+              color:"#FF0000",
+              width: 10
+            },
+            edgeLabel:{
+              show: true
+            }
+          }
+        }]
+      };
+      console.log(ATTWN_option.series[0].links);
+
+      if (ATTWN_option && typeof ATTWN_option === 'object') {
+        ATTWN_myChart.setOption(ATTWN_option);
+      }
+    });
+    
+
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    var option;
+
+    mylink = [];
+    d3.json("./data/NLHSDCA.json", function(dataa){
+      // console.log(data);
+      for(var i = 0; i < dataa.length; i++){
+        if( dataa[i].source == "波洛" || dataa[i].target == "波洛" ){
+          mylink.push({ 
+                      source : dataa[i].source, 
+                      target : dataa[i].target, 
+                      lineStyle: {
+                        color: "#446644",
+                        width: Math.sqrt(dataa[i].width) * 1.6,
+                        curveness: 0.2
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: dataa[i].width.toString(10)
+                        }
+                      }
+                    });
+        }else if( (dataa[i].source == "西蒙" && dataa[i].target == "琳内特") ||
+                  (dataa[i].source == "西蒙" && dataa[i].target == "杰奎琳")||
+                  (dataa[i].source == "琳内特" && dataa[i].target == "杰奎琳")){
+          mylink.push({ 
+                      source : dataa[i].source, 
+                      target : dataa[i].target, 
+                      lineStyle: {
+                        color: "#550000",
+                        width: Math.sqrt(dataa[i].width) * 1.6,
+                        curveness: 0.2
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: dataa[i].width.toString(10)
+                        }
+                      }
+                    });
+        }else{
+          mylink.push({ 
+                      source : dataa[i].source, 
+                      target : dataa[i].target, 
+                      lineStyle: {
+                        width : Math.sqrt(dataa[i].width) * 2,
+                      },
+                      label: {
+                        normal: {
+                          fontSize: 40,
+                          fontWeight: 700,
+                          formatter: dataa[i].width.toString(10)
+                        }
+                      }
+                    });
+        }
+      }
+
+      option = {
+        title: {
+          text: 'Death On The Nile Relation',
+          top:10,
+          left: "center",
+          textStyle:{
+            fontSize: 50,
+          }
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series: [{
+          type: 'graph',
+          layout: 'none',
+          symbolSize: 50,
+          roam: true,
+          label: {
+            fontSize: 36,
+            fontWeight: 700,
+            show: true
+          },
+          edgeLabel: {
+            normal: {
+                color: '#AA0012',//线上的字体颜色
+            }
+          },
+          data: [
+            {
+              name: "波洛",
+              symbolSize: 664 / 2,
+              value: 664,
+              x: 0,
+              y: 400,
+              itemStyle:{
+                color:"#557755"
+              }
+            },
+            {
+              name: "琳内特",
+              symbolSize: 307 / 2,
+              value: 307,
+              x: 500,
+              y: 0,
+              itemStyle:{
+                color:"#550000"
+              }
+            },
+            {
+              name: '西蒙',
+              symbolSize : 278 / 2,
+              value : 278,
+              x: 200,
+              y: 1000,
+              itemStyle:{
+                color:"#550000"
+              }
+            },
+            {
+              name: '雷斯',
+              symbolSize: 262 / 2,
+              value: 262,
+              x: 1000,
+              y: 400
+            },
+            {
+              name: '杰奎琳',
+              symbolSize: 183 / 2,
+              value: 183,
+              x: 800,
+              y: 1000,
+              itemStyle:{
+                color:"#550000"
+              }
+            },
+            {
+              name: '蒂姆',
+              symbolSize: 156 / 2,
+              value: 156,
+              x: 400,
+              y: 1050
+            },
+            {
+              name: '潘宁顿',
+              symbolSize: 141 / 2,
+              value: 141,
+              x: 600,
+              y: 1050
+            },
+            {
+              name: '科妮丽亚',
+              symbolSize: 137 / 2,
+              value: 137,
+              x: 873,
+              y: 800
+            },
+            {
+              name: '罗莎莉',
+              symbolSize: 118 / 2,
+              value: 113,
+              x: 970,
+              y: 600
+            },
+            {
+              name: '范索普',
+              symbolSize: 113 / 2,
+              value: 113,
+              x: 100,
+              y: 800
+            },
+            {
+              name: '贝斯纳',
+              symbolSize: 108 / 2,
+              value: 108,
+              x: 30,
+              y: 660
+            },
+            {
+              name: '范斯凯勒',
+              symbolSize: 95 / 2,
+              value: 95,
+              x: 130,
+              y: 200
+            },
+            {
+              name: '鲍尔斯',
+              symbolSize: 78 / 2,
+              value: 78,
+              x: 300,
+              y: 60
+            },
+            {
+              name: '乔安娜',
+              symbolSize: 59 / 2,
+              value: 59,
+              x: 880,
+              y: 200
+            },
+            {
+              name: '波尔热',
+              symbolSize: 44 / 2,
+              value: 44,
+              x: 680,
+              y: 60
+            },
+          ],
+          links : mylink,
+          lineStyle: {
+            opacity: 0.9,
+            width: 2,
+            curveness: 0.1
+          },
+          emphasis: {
+            focus: 'adjacency',
+            lineStyle: {
+              color:"#FF0000",
+              width: 10
+            },
+            edgeLabel:{
+              show: true
+            }
+          }
+        }]
+      };
+      console.log(option.series[0].links);
+
+      if (option && typeof option === 'object') {
+        myChart.setOption(option);
+      }
+
+    });
+
+    window.addEventListener('resize', myChart.resize);
+
+
+
+    window.addEventListener('resize', ATTWN_myChart.resize);
+  </script>
+</body>
+
+</html>
